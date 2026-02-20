@@ -14,6 +14,11 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     
+    # REQUIRED FIX: Add the environment configuration block here
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
