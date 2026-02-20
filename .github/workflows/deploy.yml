@@ -46,17 +46,21 @@ jobs:
           # Safely inject API key and enable Brevo if the secret exists in the environment
           if [ -n "$BREVO_KEY" ]; then
             echo "✅ API key secret found. Injecting into HTML..."
-            sed -i "s|YOUR_BREVO_API_KEY_HERE|$BREVO_KEY|g" _site/index.html
             
-            # THIS is where the flipping happens automatically!
+            # Perform the replacements
+            sed -i "s|YOUR_BREVO_API_KEY_HERE|$BREVO_KEY|g" _site/index.html
             sed -i "s/enabled: false/enabled: true/g" _site/index.html
+            
+            # VERIFICATION STEP: Check if the flip actually happened in the file
+            if grep -q "enabled: true" _site/index.html; then
+              echo "✅ Verification passed: 'enabled: true' is now in the live file!"
+            else
+              echo "❌ Warning: 'enabled: true' was NOT found after replacement attempt. Check exact wording in HTML."
+            fi
+            
           else
             echo "⚠️ API key secret not found. Email notifications will remain disabled, but deploying website..."
           fi
-          
-          # Show the contents of the deploy folder
-          echo "Contents of _site folder ready for deployment:"
-          ls -la _site/
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
