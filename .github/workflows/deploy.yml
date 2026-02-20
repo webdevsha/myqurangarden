@@ -5,53 +5,47 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
       
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      
-      - name: Create build directory and inject secrets
+      - name: Create build with injected secrets
         run: |
-          # Create a clean build directory
-          rm -rf build
-          mkdir -p build
+          # Create build directory
+          mkdir -p _site
           
-          # Copy quran-garden-final.html to build directory
-          cp quran-garden-final.html build/index.html
+          # Copy quran-garden-final.html as index.html
+          cp quran-garden-final.html _site/index.html
           
           # Inject API key and enable Brevo
-          sed -i "s/YOUR_BREVO_API_KEY_HERE/${{ secrets.BREVO_API_KEY }}/g" build/index.html
-          sed -i "s/enabled: false/enabled: true/g" build/index.html
+          sed -i "s/YOUR_BREVO_API_KEY_HERE/${{ secrets.BREVO_API_KEY }}/g" _site/index.html
+          sed -i "s/enabled: false/enabled: true/g" _site/index.html
           
-          # Verify injection worked
-          echo "Checking if API key was injected..."
-          if grep -q "YOUR_BREVO_API_KEY_HERE" build/index.html; then
-            echo "❌ ERROR: API key was NOT injected!"
+          # Verify it worked
+          echo "Verifying injection..."
+          if grep -q "YOUR_BREVO_API_KEY_HERE" _site/index.html; then
+            echo "❌ API key not injected!"
             exit 1
           fi
-          
-          if grep -q "enabled: false" build/index.html; then
-            echo "❌ ERROR: Brevo was NOT enabled!"
-            exit 1
-          fi
-          
-          echo "✅ Build completed successfully"
+          echo "✅ API key injected successfully"
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: '_site'
       
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
-          publish_branch: gh-pages
-          user_name: "github-actions[bot]"
-          user_email: "github-actions[bot]@users.noreply.github.com"
+        id: deployment
+        uses: actions/deploy-pages@v2
