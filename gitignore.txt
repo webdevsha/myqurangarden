@@ -1,0 +1,19 @@
+# Build directory with injected secrets
+build/
+
+# Node modules (if you add any)
+node_modules/
+
+# Environment files
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
