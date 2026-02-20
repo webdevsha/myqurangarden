@@ -14,7 +14,6 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     
-    # REQUIRED FIX: Add the environment configuration block here
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -23,7 +22,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       
-      - name: Create build with injected secrets
+      - name: Create build directory and prepare files
         run: |
           # Create build directory
           mkdir -p _site
@@ -31,20 +30,30 @@ jobs:
           # Add .nojekyll to bypass GitHub Pages default Jekyll processing
           touch _site/.nojekyll
           
-          # Copy quran-garden-final.html as index.html
+          # Check if the source file exists (helps catch typos in filenames)
+          if [ ! -f "quran-garden-final.html" ]; then
+            echo "❌ Error: quran-garden-final.html not found in repository!"
+            ls -la
+            exit 1
+          fi
+          
+          # Copy specifically to index.html (This is what makes it the main page)
           cp quran-garden-final.html _site/index.html
           
           # Inject API key and enable Brevo
           sed -i "s/YOUR_BREVO_API_KEY_HERE/${{ secrets.BREVO_API_KEY }}/g" _site/index.html
-          sed -i "s/enabled: false/enabled: true/g" _site/index.html
           
-          # Verify it worked
-          echo "Verifying injection..."
+          # Only enable Brevo if the secret actually exists and was injected
           if grep -q "YOUR_BREVO_API_KEY_HERE" _site/index.html; then
-            echo "❌ API key not injected!"
-            exit 1
+            echo "⚠️ API key secret not found. Email notifications will remain disabled, but deploying website..."
+          else
+            echo "✅ API key injected successfully."
+            sed -i "s/enabled: false/enabled: true/g" _site/index.html
           fi
-          echo "✅ API key injected successfully"
+          
+          # Show the contents of the deploy folder to verify in GitHub logs
+          echo "Contents of _site folder ready for deployment:"
+          ls -la _site/
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -52,7 +61,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '_site'
+          path: './_site'
       
       - name: Deploy to GitHub Pages
         id: deployment
