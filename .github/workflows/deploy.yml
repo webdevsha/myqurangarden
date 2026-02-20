@@ -1,47 +1,26 @@
-name: Deploy Quran Garden
-
-on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
+- name: Create build directory and inject secrets
+  run: |
+    # Create a clean build directory
+    rm -rf build
+    mkdir -p build
     
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      
-      - name: Create build directory and inject secrets
-        run: |
-          # Create a separate build directory
-          mkdir -p build
-          
-          # Copy HTML file to build directory
-          cp quran-garden-final.html build/index.html
-          
-          # Inject API key ONLY in the build directory (not tracked by git)
-          sed -i "s/YOUR_BREVO_API_KEY_HERE/${{ secrets.BREVO_API_KEY }}/g" build/index.html
-          sed -i "s/enabled: false/enabled: true/g" build/index.html
-          
-          # Optional: Update sender email
-          # sed -i "s/noreply@yourwebsite.com/${{ secrets.SENDER_EMAIL }}/g" build/index.html
-          
-          echo "✅ Build completed with secrets injected"
-      
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
-          publish_branch: gh-pages
-          user_name: "github-actions[bot]"
-          user_email: "github-actions[bot]@users.noreply.github.com"
+    # Copy your HTML file (change filename if needed)
+    cp c3.html build/index.html
+    
+    # Inject API key and enable Brevo
+    sed -i "s/YOUR_BREVO_API_KEY_HERE/${{ secrets.BREVO_API_KEY }}/g" build/index.html
+    sed -i "s/enabled: false/enabled: true/g" build/index.html
+    
+    # Verify injection worked
+    echo "Checking if API key was injected..."
+    if grep -q "YOUR_BREVO_API_KEY_HERE" build/index.html; then
+      echo "❌ ERROR: API key was NOT injected!"
+      exit 1
+    fi
+    
+    if grep -q "enabled: false" build/index.html; then
+      echo "❌ ERROR: Brevo was NOT enabled!"
+      exit 1
+    fi
+    
+    echo "✅ Build completed successfully"
