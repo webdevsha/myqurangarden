@@ -40,15 +40,14 @@ jobs:
           # Copy specifically to index.html (This is what makes it the main page)
           cp quran-garden-final.html _site/index.html
           
-          # Inject API key and enable Brevo
-          sed -i "s/YOUR_BREVO_API_KEY_HERE/${{ secrets.BREVO_API_KEY }}/g" _site/index.html
-          
-          # Only enable Brevo if the secret actually exists and was injected
-          if grep -q "YOUR_BREVO_API_KEY_HERE" _site/index.html; then
-            echo "⚠️ API key secret not found. Email notifications will remain disabled, but deploying website..."
-          else
-            echo "✅ API key injected successfully."
+          # Safely inject API key and enable Brevo if the secret exists
+          if [ -n "${{ secrets.BREVO_API_KEY }}" ]; then
+            echo "✅ API key secret found. Injecting into HTML..."
+            # Using | as delimiter in case the key contains special characters
+            sed -i "s|YOUR_BREVO_API_KEY_HERE|${{ secrets.BREVO_API_KEY }}|g" _site/index.html
             sed -i "s/enabled: false/enabled: true/g" _site/index.html
+          else
+            echo "⚠️ API key secret not found. Email notifications will remain disabled, but deploying website..."
           fi
           
           # Show the contents of the deploy folder to verify in GitHub logs
@@ -61,7 +60,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './_site'
+          path: '_site'
       
       - name: Deploy to GitHub Pages
         id: deployment
