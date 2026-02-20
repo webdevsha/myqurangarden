@@ -28,6 +28,9 @@ jobs:
           # Create build directory
           mkdir -p _site
           
+          # Add .nojekyll to bypass GitHub Pages default Jekyll processing
+          touch _site/.nojekyll
+          
           # Copy quran-garden-final.html as index.html
           cp quran-garden-final.html _site/index.html
           
