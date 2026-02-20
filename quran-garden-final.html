@@ -1228,6 +1228,7 @@ function hideToast() {
 async function sendBrevoEmail(recipientEmail, day, entry) {
   if (!BREVO_CONFIG.enabled || !BREVO_CONFIG.apiKey || BREVO_CONFIG.apiKey === 'YOUR_BREVO_API_KEY_HERE') {
     console.log('Brevo email disabled or API key not configured');
+    showToast('success', 'Entry Saved! 🌱', `Day ${day} planted (Email disabled locally)`);
     return;
   }
 
