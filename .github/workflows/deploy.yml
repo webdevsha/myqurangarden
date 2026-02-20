@@ -23,6 +23,9 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Create build directory and prepare files
+        env:
+          # Safely pass the secret into the script environment
+          BREVO_KEY: ${{ secrets.BREVO_API_KEY }}
         run: |
           # Create build directory
           mkdir -p _site
@@ -30,27 +33,28 @@ jobs:
           # Add .nojekyll to bypass GitHub Pages default Jekyll processing
           touch _site/.nojekyll
           
-          # Check if the source file exists (helps catch typos in filenames)
+          # Check if the source file exists
           if [ ! -f "quran-garden-final.html" ]; then
             echo "❌ Error: quran-garden-final.html not found in repository!"
             ls -la
             exit 1
           fi
           
-          # Copy specifically to index.html (This is what makes it the main page)
+          # Copy specifically to index.html
           cp quran-garden-final.html _site/index.html
           
-          # Safely inject API key and enable Brevo if the secret exists
-          if [ -n "${{ secrets.BREVO_API_KEY }}" ]; then
+          # Safely inject API key and enable Brevo if the secret exists in the environment
+          if [ -n "$BREVO_KEY" ]; then
             echo "✅ API key secret found. Injecting into HTML..."
-            # Using | as delimiter in case the key contains special characters
-            sed -i "s|YOUR_BREVO_API_KEY_HERE|${{ secrets.BREVO_API_KEY }}|g" _site/index.html
+            sed -i "s|YOUR_BREVO_API_KEY_HERE|$BREVO_KEY|g" _site/index.html
+            
+            # THIS is where the flipping happens automatically!
             sed -i "s/enabled: false/enabled: true/g" _site/index.html
           else
             echo "⚠️ API key secret not found. Email notifications will remain disabled, but deploying website..."
           fi
           
-          # Show the contents of the deploy folder to verify in GitHub logs
+          # Show the contents of the deploy folder
           echo "Contents of _site folder ready for deployment:"
           ls -la _site/
       
