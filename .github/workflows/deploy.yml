@@ -24,11 +24,10 @@ jobs:
       
       - name: Create build directory and prepare files
         env:
-          # Safely pass the secret into the script environment
           BREVO_KEY: ${{ secrets.BREVO_API_KEY }}
         run: |
-          # Create build directory
-          mkdir -p _site
+          # Create build directories
+          mkdir -p _site/notes
           
           # Add .nojekyll to bypass GitHub Pages default Jekyll processing
           touch _site/.nojekyll
@@ -40,10 +39,18 @@ jobs:
             exit 1
           fi
           
-          # Copy specifically to index.html
+          # Copy Quran Garden as index.html
           cp quran-garden-final.html _site/index.html
           
-          # Safely inject API key and enable Brevo if the secret exists in the environment
+          # Copy Marriage Reflection to notes subfolder
+          if [ -f "marriage-reflection.html" ]; then
+            cp marriage-reflection.html _site/notes/ba-reflection.html
+            echo "✅ Copied marriage-reflection.html to /notes/ba-reflection.html"
+          else
+            echo "⚠️ marriage-reflection.html not found, skipping..."
+          fi
+          
+          # Safely inject API key and enable Brevo if the secret exists
           if [ -n "$BREVO_KEY" ]; then
             echo "✅ API key secret found. Injecting into HTML..."
             
@@ -51,15 +58,14 @@ jobs:
             sed -i "s|YOUR_BREVO_API_KEY_HERE|$BREVO_KEY|g" _site/index.html
             sed -i "s/enabled: false/enabled: true/g" _site/index.html
             
-            # VERIFICATION STEP: Check if the flip actually happened in the file
+            # Verification step
             if grep -q "enabled: true" _site/index.html; then
               echo "✅ Verification passed: 'enabled: true' is now in the live file!"
             else
-              echo "❌ Warning: 'enabled: true' was NOT found after replacement attempt. Check exact wording in HTML."
+              echo "❌ Warning: 'enabled: true' was NOT found after replacement attempt."
             fi
-            
           else
-            echo "⚠️ API key secret not found. Email notifications will remain disabled, but deploying website..."
+            echo "⚠️ API key secret not found. Email notifications will remain disabled."
           fi
       
       - name: Setup Pages
