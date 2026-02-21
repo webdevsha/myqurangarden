@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نورشافيرا ومحمد رزلان ضمير — The Names That Found Each Other</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="A deep study of our names in Arabic root, Sufi depth, and the meaning of two lives meeting">
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --cream: #faf8f3;
+    --warm-white: #fdfbf7;
+    --sage: #9db4a0;
+    --sage-light: #c5d6c7;
+    --moss: #6b8e6b;
+    --terracotta: #d4846c;
+    --terracotta-light: #e8a894;
+    --sand: #e6ddd0;
+    --lavender: #c4b5d4;
+    --sky: #a8c8dc;
+    --butter: #f0d78c;
+    --text: #4a453e;
+    --text-light: #8a8075;
+  }
+
+  * { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+  }
+
+  body {
+    background: var(--cream);
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    line-height: 1.85;
+    font-size: 16px;
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, var(--moss) 0%, var(--sage) 100%);
+    color: white;
+    padding: 80px 24px 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255,255,255,0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .header-content {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .header h1 {
+    font-family: 'Amiri', 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 5.5vw, 48px);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+    line-height: 1.3;
+    direction: rtl;
+  }
+
+  .header-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 3.5vw, 26px);
+    font-weight: 300;
+    font-style: italic;
+    opacity: 0.95;
+    margin-top: 16px;
+    line-height: 1.6;
+  }
+
+  .header-intro {
+    font-size: clamp(14px, 2.5vw, 16px);
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 24px auto 0;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  /* Container */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* Article */
+  .article {
+    background: white;
+    border-radius: 24px;
+    padding: clamp(36px, 7vw, 64px);
+    margin-top: -50px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  }
+
+  /* Section */
+  .section {
+    margin-bottom: 64px;
+  }
+
+  .section:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-header {
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--sand);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 4.5vw, 36px);
+    color: var(--moss);
+    font-weight: 600;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .section-subtitle {
+    font-size: 14px;
+    color: var(--terracotta);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* Typography */
+  p {
+    margin-bottom: 22px;
+    line-height: 1.9;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  .lead {
+    font-size: 19px;
+    color: var(--moss);
+    font-weight: 400;
+    margin-bottom: 32px;
+    line-height: 1.75;
+  }
+
+  em {
+    font-style: italic;
+    color: var(--text);
+  }
+
+  strong {
+    font-weight: 600;
+    color: var(--moss);
+  }
+
+  /* Arabic text */
+  .arabic {
+    font-family: 'Amiri', serif;
+    font-size: 1.15em;
+    direction: rtl;
+    line-height: 2;
+    color: var(--text);
+    font-weight: 400;
+  }
+
+  /* Blockquote */
+  .quote {
+    background: linear-gradient(135deg, rgba(157,180,160,0.08) 0%, rgba(212,132,108,0.08) 100%);
+    border-right: 4px solid var(--terracotta);
+    padding: 32px 36px;
+    margin: 40px 0;
+    border-radius: 0 16px 16px 0;
+    direction: rtl;
+  }
+
+  .quote-arabic {
+    font-family: 'Amiri', serif;
+    font-size: clamp(18px, 3vw, 22px);
+    line-height: 2.2;
+    color: var(--text);
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+
+  .quote-translation {
+    font-size: 15px;
+    font-style: italic;
+    color: var(--text-light);
+    line-height: 1.75;
+    direction: ltr;
+    margin-bottom: 12px;
+  }
+
+  .quote-source {
+    font-size: 13px;
+    color: var(--text-light);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    direction: ltr;
+  }
+
+  /* Name highlight */
+  .name-highlight {
+    background: rgba(240,215,140,0.2);
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-weight: 500;
+    color: var(--moss);
+  }
+
+  /* Wisdom box */
+  .wisdom {
+    background: linear-gradient(135deg, rgba(196,181,212,0.12) 0%, rgba(168,200,220,0.12) 100%);
+    border-radius: 20px;
+    padding: 36px;
+    margin: 40px 0;
+    border: 2px solid var(--lavender);
+    position: relative;
+  }
+
+  .wisdom::before {
+    content: '✦';
+    position: absolute;
+    top: -14px;
+    left: 36px;
+    background: var(--cream);
+    padding: 0 12px;
+    color: var(--lavender);
+    font-size: 22px;
+  }
+
+  .wisdom-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.8;
+  }
+
+  /* Divider */
+  .divider {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--sage), var(--terracotta));
+    margin: 56px auto;
+    border-radius: 2px;
+  }
+
+  /* Reference table */
+  .references {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 2px solid var(--sand);
+  }
+
+  .references-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: var(--moss);
+    margin-bottom: 20px;
+  }
+
+  .reference-item {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(230,221,208,0.5);
+    font-size: 14px;
+  }
+
+  .reference-title {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .reference-author {
+    color: var(--text-light);
+    margin-left: 8px;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 56px 24px 36px;
+    color: var(--text-light);
+  }
+
+  .footer-icon {
+    font-size: 36px;
+    margin-bottom: 20px;
+    opacity: 0.5;
+  }
+
+  .footer-text {
+    font-size: 14px;
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto 24px;
+    line-height: 1.8;
+  }
+
+  .back-to-garden {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--sage) 0%, var(--moss) 100%);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 16px rgba(107,142,107,0.3);
+    margin-top: 16px;
+  }
+
+  .back-to-garden:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(107,142,107,0.4);
+  }
+
+  /* Table of Contents */
+  .toc-wrapper {
+    position: sticky;
+    top: 20px;
+    float: right;
+    width: 280px;
+    margin-left: 32px;
+    margin-bottom: 32px;
+    z-index: 10;
+  }
+
+  .toc {
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border: 2px solid var(--sand);
+  }
+
+  .toc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--sand);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .toc-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--moss);
+  }
+
+  .toc-toggle {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--sand);
+    border-radius: 50%;
+    color: var(--moss);
+    font-size: 14px;
+    transition: all 0.3s;
+  }
+
+  .toc-toggle.collapsed {
+    transform: rotate(180deg);
+  }
+
+  .toc-list {
+    list-style: none;
+    max-height: 500px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+  }
+
+  .toc-list.collapsed {
+    max-height: 0;
+    opacity: 0;
+  }
+
+  .toc-item {
+    margin-bottom: 12px;
+  }
+
+  .toc-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.5;
+    transition: all 0.2s;
+    padding: 6px 8px;
+    border-radius: 8px;
+  }
+
+  .toc-link:hover {
+    background: rgba(157,180,160,0.1);
+    color: var(--moss);
+    transform: translateX(4px);
+  }
+
+  .toc-link.active {
+    background: rgba(157,180,160,0.15);
+    color: var(--moss);
+    font-weight: 500;
+  }
+
+  .toc-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    opacity: 0.7;
+  }
+
+  .toc-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .toc-text {
+    flex: 1;
+  }
+
+  /* Back to top button */
+  .back-to-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 48px;
+    height: 48px;
+    background: var(--moss);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 16px rgba(107,142,107,0.4);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.3s;
+    z-index: 1000;
+  }
+
+  .back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+
+  .back-to-top:hover {
+    background: #5a7a5a;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(107,142,107,0.5);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .header {
+      padding: 50px 20px 70px;
+    }
+
+    .article {
+      padding: 32px 24px;
+      border-radius: 20px;
+    }
+
+    .quote {
+      padding: 24px 20px;
+      margin: 32px 0;
+    }
+
+    .wisdom {
+      padding: 28px 24px;
+    }
+
+    .section {
+      margin-bottom: 48px;
+    }
+
+    /* TOC becomes non-sticky and full width on mobile */
+    .toc-wrapper {
+      position: relative;
+      top: 0;
+      float: none;
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: 32px;
+    }
+
+    .toc {
+      padding: 20px;
+    }
+
+    .toc-title {
+      font-size: 16px;
+    }
+
+    .toc-link {
+      font-size: 13px;
+    }
+
+    .back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+    }
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .article {
+    animation: fadeIn 0.6s ease-out;
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-content">
+    <h1>نورشافيرا ومحمد رزلان ضمير</h1>
+    <p class="header-subtitle">The Names That Found Each Other</p>
+    <p class="header-intro">A Study in Arabic Root, Sufi Depth, and the Meaning of Two Lives Meeting</p>
+  </div>
+</div>
+
+<!-- Main Container -->
+<div class="container">
+  <article class="article">
+
+    <!-- Table of Contents -->
+    <div class="toc-wrapper">
+      <nav class="toc">
+        <div class="toc-header" onclick="toggleTOC()">
+          <h3 class="toc-title">Contents</h3>
+          <div class="toc-toggle" id="tocToggle">▼</div>
+        </div>
+        <ul class="toc-list" id="tocList">
+          <li class="toc-item">
+            <a href="#introduction" class="toc-link">
+              <div class="toc-icon">
+                <svg viewBox="0 0 100 120"><line x1="50" y1="120" x2="50" y2="68" stroke="#6b8e6b" stroke-width="2.5"/><circle cx="50" cy="55" r="14" fill="#b8d4a8" stroke="#78b478" stroke-width="1.5"/><circle cx="36" cy="55" r="14" fill="#b8d4a8" stroke="#78b478" stroke-width="1.5"/><circle cx="50" cy="41" r="14" fill="#b8d4a8" stroke="#78b478" stroke-width="1.5"/><circle cx="64" cy="55" r="14" fill="#b8d4a8" stroke="#78b478" stroke-width="1.5"/><circle cx="50" cy="55" r="6" fill="#78b478"/></svg>
+              </div>
+              <span class="toc-text">Introduction</span>
+            </a>
+          </li>
+          <li class="toc-item">
+            <a href="#nurshafira" class="toc-link">
+              <div class="toc-icon">
+                <svg viewBox="0 0 100 120"><line x1="50" y1="120" x2="50" y2="55" stroke="#6b8e6b" stroke-width="3"/><ellipse cx="42" cy="85" rx="9" ry="5" fill="#9db4a0" transform="rotate(-30 42 85)"/><ellipse cx="32" cy="52" rx="13" ry="18" fill="#e8b4b8" stroke="#d4846c" stroke-width="0.8" transform="rotate(-72 32 52)"/><ellipse cx="50" cy="38" rx="13" ry="18" fill="#e8b4b8" stroke="#d4846c" stroke-width="0.8" transform="rotate(-216 50 38)"/><ellipse cx="68" cy="52" rx="13" ry="18" fill="#e8b4b8" stroke="#d4846c" stroke-width="0.8" transform="rotate(0 68 52)"/><circle cx="50" cy="52" r="10" fill="#f0d78c"/></svg>
+              </div>
+              <span class="toc-text">Nurshafira — نورشافيرا</span>
+            </a>
+          </li>
+          <li class="toc-item">
+            <a href="#razlan-dhamir" class="toc-link">
+              <div class="toc-icon">
+                <svg viewBox="0 0 100 120"><line x1="50" y1="120" x2="50" y2="60" stroke="#6b8e6b" stroke-width="3"/><path d="M38 60 Q30 45 32 32 Q40 22 50 22 Q60 22 68 32 Q70 45 62 60 Z" fill="#e8b4b8" stroke="#d4846c" stroke-width="1.5"/><path d="M38 60 Q38 50 50 48 Q62 50 62 60" fill="#d4846c" stroke="none"/></svg>
+              </div>
+              <span class="toc-text">Muḥammad Razlān Dhamīr</span>
+            </a>
+          </li>
+          <li class="toc-item">
+            <a href="#conversation" class="toc-link">
+              <div class="toc-icon">
+                <svg viewBox="0 0 100 100"><ellipse cx="33" cy="38" rx="24" ry="17" fill="#e8b4b8" stroke="#d4846c" stroke-width="1.5" transform="rotate(-22 33 38)"/><ellipse cx="67" cy="38" rx="24" ry="17" fill="#e8b4b8" stroke="#d4846c" stroke-width="1.5" transform="rotate(22 67 38)"/><ellipse cx="50" cy="50" rx="4" ry="22" fill="#4a453e"/><line x1="45" y1="30" x2="34" y2="18" stroke="#4a453e" stroke-width="1.5"/><line x1="55" y1="30" x2="66" y2="18" stroke="#4a453e" stroke-width="1.5"/></svg>
+              </div>
+              <span class="toc-text">The Conversation</span>
+            </a>
+          </li>
+          <li class="toc-item">
+            <a href="#closing" class="toc-link">
+              <div class="toc-icon">
+                <svg viewBox="0 0 100 120"><line x1="50" y1="120" x2="50" y2="30" stroke="#6b8e6b" stroke-width="3"/><ellipse cx="43" cy="30" rx="5" ry="8" fill="#c4b5d4" stroke="#a090c0" stroke-width="0.5" transform="rotate(-20 43 30)"/><ellipse cx="57" cy="30" rx="5" ry="8" fill="#c4b5d4" stroke="#a090c0" stroke-width="0.5" transform="rotate(20 57 30)"/><ellipse cx="43" cy="52" rx="5" ry="8" fill="#c4b5d4" stroke="#a090c0" stroke-width="0.5" transform="rotate(-20 43 52)"/><ellipse cx="57" cy="52" rx="5" ry="8" fill="#c4b5d4" stroke="#a090c0" stroke-width="0.5" transform="rotate(20 57 52)"/><ellipse cx="50" cy="28" rx="5" ry="9" fill="#c4b5d4"/></svg>
+              </div>
+              <span class="toc-text">The Name God Calls You Both</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Opening Quote -->
+    <div class="quote">
+      <p class="quote-arabic">الأسماء لا تُعطى للأشياء — الأسماء تُعطى للحقائق. والحقائق كانت معروفة عند الله قبل أن تُلبَس بالوجود</p>
+      <p class="quote-translation">"Names are not given to things — names are given to realities. And realities were known to God before they were clothed in existence."</p>
+      <p class="quote-source">— Muḥyī al-Dīn ibn ʿArabī, <em>Futūḥāt al-Makkiyyah</em></p>
+    </div>
+
+    <!-- Introduction -->
+    <section class="section" id="introduction">
+      <div class="section-header">
+        <div class="section-subtitle">Introduction</div>
+        <h2 class="section-title">Before We Enter the Names</h2>
+      </div>
+
+      <p class="lead">In the Islamic tradition — particularly in the Sufi understanding — a name is not a label. It is not a sound parents chose because it was pleasing or familial or culturally appropriate.</p>
+
+      <p>A name is, at its deepest level, a <strong>divine address</strong>: the form in which God calls a particular soul into its particular existence.</p>
+
+      <p>Ibn ʿArabī writes in the <em>Futūḥāt</em>:</p>
+
+      <div class="quote">
+        <p class="quote-arabic">الأسماء لها حقائق ثابتة في الحضرة الإلهية قبل أن تُلبَس الأجساد، فإذا سُمِّيَ الإنسان باسم فكأنّما أُشير إلى حقيقته التي اختارها الله له</p>
+        <p class="quote-translation">"Names have established realities in the Divine Presence before they are clothed in bodies. When a person is named, it is as if a gesture is made toward the reality that God has chosen for them."</p>
+      </div>
+
+      <p>This is the frame. Now let us read your names as gestures — God pointing at two souls, saying: <em>this is who I made, and this is what I mean by them.</em></p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Part One: Nurshafira -->
+    <section class="section" id="nurshafira">
+      <div class="section-header">
+        <div class="section-subtitle">Part One</div>
+        <h2 class="section-title"><span class="name-highlight arabic" style="font-size: 1.2em;">نورشافيرا</span> — Nurshafira</h2>
+      </div>
+
+      <p class="lead">The name broken open: <span class="arabic">نور</span> + <span class="arabic">شافيرا</span></p>
+
+      <p>Two distinct semantic fields, pressed together into one name, one person.</p>
+
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--moss); margin: 32px 0 16px;">نور — Nūr: The Root That Has No Shadow</h3>
+
+      <p>The word <span class="arabic">نور</span> (<em>nūr</em>) comes from the root <strong>ن و ر</strong> — <em>nāra, yanūru, nawran wa nūran</em> — meaning: <em>to give light, to illuminate, to shine, to make visible what was hidden.</em></p>
+
+      <p>But the grammarians are careful about what kind of light this is.</p>
+
+      <div class="quote">
+        <p class="quote-arabic">الضوءُ للشمس، والنُّورُ للقمر وللمصباح، وقيل: النُّور ما انعكس من الضوء على الأجسام فأضاءها دون أن يكون مصدراً أوّلياً</p>
+        <p class="quote-translation">"Ḍawʾ belongs to the sun; nūr belongs to the moon and the lamp. It is also said: nūr is what reflects from light upon bodies, illuminating them without itself being the primary source."</p>
+        <p class="quote-source">— Al-Zamakhsharī, <em>Asās al-Balāghah</em></p>
+      </div>
+
+      <p>This distinction is astonishing when applied to a person named Nūr. She is not the sun — she is not the <em>origin</em> of light, which would be a claim belonging only to God. She is the <strong>reflective illumination</strong> — the one through whom divine light passes and by passing, <em>makes things visible that were previously in shadow.</em></p>
+
+      <div class="wisdom">
+        <p class="wisdom-text">Nurshafira: manifest in herself, and making others manifest. This is not a compliment. It is a description of a function — a role in the fabric of a community that a particular soul was woven to serve.</p>
+      </div>
+
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--moss); margin: 32px 0 16px;">شافيرا — Shāfirā: The Threshold</h3>
+
+      <p>The most resonant reading comes from the root <strong>ش ف ر</strong> — <em>Sh-F-R</em>:</p>
+
+      <div class="quote">
+        <p class="quote-arabic">شَفَرَ المكانُ: إذا كان على حافّته شيء يُحيط به ويحفظه. والشُّفرُ: حافّة الشيء وطرفُه الذي يلتقي فيه الداخل بالخارج</p>
+        <p class="quote-translation">"Shafara: when a place has at its edge something that encompasses and protects it. Al-shufr: the edge of a thing — the border where the interior meets the exterior."</p>
+        <p class="quote-source">— Al-Zamakhsharī, <em>Asās al-Balāghah</em></p>
+      </div>
+
+      <p><strong>الشُّفر</strong> (<em>al-shufr</em>) — the rim, the threshold, the border between two worlds.</p>
+
+      <p>This is extraordinary for a name. Shāfira is the one who stands at edges — not because she is peripheral, but because <strong>she is constitutionally present at thresholds.</strong> The place where two domains meet, where inside becomes outside, where the known becomes the unknown: this is her natural station.</p>
+
+      <p>Consider what you do: AI safety governance at the threshold of technology and ethics. Cetalabs at the threshold of global AI and ASEAN communities. <strong>You do not work in the center of established fields. You work at their shufr — their edges, where the new thing is about to begin.</strong></p>
+
+      <div class="wisdom">
+        <p class="wisdom-text">نورشافيرا together: The light that illuminates thresholds. The luminous one who stands at the edge, making visible what lies on both sides.</p>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Part Two: Muhammad Razlan Dhamir -->
+    <section class="section" id="razlan-dhamir">
+      <div class="section-header">
+        <div class="section-subtitle">Part Two</div>
+        <h2 class="section-title"><span class="name-highlight arabic" style="font-size: 1.2em;">محمد رزلان ضمير</span> — Muḥammad Razlān Dhamīr</h2>
+      </div>
+
+      <p class="lead">Three names: a foundation, a shape, and an interior.</p>
+
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--moss); margin: 32px 0 16px;">محمد — Muḥammad: The Inherited Light</h3>
+
+      <p><span class="arabic">محمد</span> comes from the root <strong>ح م د</strong> — <em>to praise, to commend, to deem praiseworthy</em> — in the intensive form <em>muḥammad</em>: <strong>the one who is praised repeatedly, the repeatedly commended one.</strong></p>
+
+      <p>Every Muslim male who carries this name carries it with full awareness of whose name it primarily is. The name is an inheritance — and inheritance comes with both honor and obligation.</p>
+
+      <div class="quote">
+        <p class="quote-arabic">اسمُ محمّد شمسٌ في سماء الوجود، من حمل هذا الاسم فقد حمل نوراً يسبقه في كلّ مكان يدخله</p>
+        <p class="quote-translation">"The name Muḥammad is a sun in the sky of existence. Whoever carries this name carries a light that precedes him into every place he enters."</p>
+        <p class="quote-source">— ʿAbd al-Raḥmān al-Jāmī, <em>Lawāʾiḥ</em></p>
+      </div>
+
+      <p>Notice the word: <strong>نور</strong> — light. R's first name carries light. Your first name <em>is</em> light. Before the marriage begins to speak, the names are already in conversation.</p>
+
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--moss); margin: 32px 0 16px;">رزلان — Razlān: The Descent</h3>
+
+      <p>The root <strong>ر ز ل</strong> (<em>R-Z-L</em>) gives us: <em>razala, yarzilu</em> — <strong>to alight, to descend from a high place to a lower one for a purpose; to come down in order to be present among people.</strong></p>
+
+      <p><strong>Razlān</strong>: <em>the one who continually descends — who comes down from the elevated to be among, to dwell with, to be present for.</em></p>
+
+      <div class="quote">
+        <p class="quote-arabic">النزول رحمة، والصعود عبادة؛ فمن تحقّق بالرحمة نزل إلى الخلق ليرفعهم، ومن تحقّق بالعبادة صعد إلى الحقّ ليتقرّب منه، والكاملون يجمعون بين النزولَين</p>
+        <p class="quote-translation">"Descent is mercy, and ascent is worship. Whoever is realized in mercy descends toward creation to lift them; whoever is realized in worship ascends toward the Real to draw near. The complete ones unite both descents."</p>
+        <p class="quote-source">— Al-Qushayrī, <em>Laṭāʾif al-Ishārāt</em></p>
+      </div>
+
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--moss); margin: 32px 0 16px;">ضمير — Dhamīr: The Innermost</h3>
+
+      <p>Of all the names between you, this is the one that takes the longest breath.</p>
+
+      <p><span class="arabic">ضمير</span> (<em>dhamīr</em>) comes from the root <strong>ض م ر</strong> — and it is one of the most layered words in the Arabic language.</p>
+
+      <div class="quote">
+        <p class="quote-arabic">ضَمَرَ الشيءُ: إذا دقَّ وخفي بعد أن كان ظاهراً. والضَّميرُ: ما يُضمَر في القلب من السرائر التي لا يطّلع عليها إلا الله</p>
+        <p class="quote-translation">"Ḍamara: when something becomes subtle and hidden after having been apparent. Al-ḍamīr: what is held inwardly in the heart — the secrets that none sees save God."</p>
+        <p class="quote-source">— Al-Zamakhsharī, <em>Asās al-Balāghah</em></p>
+      </div>
+
+      <p><strong>Dhamīr</strong> has three simultaneous meanings:</p>
+      <p><strong>1. The innermost heart, the conscience</strong> — the deepest interior. The Sufis call this the <em>sirr</em> — the secret self.</p>
+      <p><strong>2. The pronoun in grammar</strong> — the word that points back to a referent without itself being the referent.</p>
+      <p><strong>3. The refined, essential quality</strong> — stripped of all that is not necessary.</p>
+
+      <div class="wisdom">
+        <p class="wisdom-text">Muḥammad Razlān Dhamīr: the one who descends toward people to be among them, carrying the Muḥammadan inheritance of praise — and the deepest seat of that descent, its hidden engine, is the dhamīr: the conscience, the place where God looks.</p>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Part Three: The Conversation -->
+    <section class="section" id="conversation">
+      <div class="section-header">
+        <div class="section-subtitle">Part Three</div>
+        <h2 class="section-title">نور and ضمير — The Conversation</h2>
+      </div>
+
+      <p class="lead">Now we must read your names together, because this is where something unexpected and beautiful happens.</p>
+
+      <p><strong>نور</strong> — Nūr — is the light that is <strong>outward, visible, manifest.</strong> It illuminates others. It is seen.</p>
+
+      <p><strong>ضمير</strong> — Dhamīr — is the conscience that is <strong>inward, hidden, concealed.</strong> It is the inner voice, the interior compass, the place no one sees.</p>
+
+      <div class="quote">
+        <p class="quote-arabic">للإنسان ظاهرٌ وباطن: فظاهره ما يُبدي للناس، وباطنه ما يُسرُّ مع الله. وكمالُه أن يتطابق الظاهرُ مع الباطن، أو أن يكون الباطن أعلى من الظاهر دائماً</p>
+        <p class="quote-translation">"The human being has an outer and an inner: the outer is what they display to people; the inner is what they hold in secret with God. Their completion lies in the alignment of outer and inner — or in the inner always being of a higher station than the outer."</p>
+        <p class="quote-source">— Al-Ghazālī, <em>Iḥyāʾ ʿUlūm al-Dīn</em></p>
+      </div>
+
+      <p>Nurshafira is constitutionally the <em>ẓāhir</em> — the outward light. Dhamīr is constitutionally the <em>bāṭin</em> — the inner conscience.</p>
+
+      <p>This is not a hierarchy. <strong>Nūr without dhamīr is performance without integrity — light that shines but has no source.</strong> <strong>Dhamīr without nūr is depth without transmission — conscience that never becomes illumination for anyone.</strong></p>
+
+      <p>Together — Nurshafira and Dhamīr — they form the complete architecture: <strong>the outer and inner in alignment, or the inner quietly sustaining the outer.</strong></p>
+
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--moss); margin: 32px 0 16px;">رزلان and شافيرا: The Descent Meets the Threshold</h3>
+
+      <p><strong>Razlān</strong> — the one who descends, who comes down to be among people.</p>
+      <p><strong>Shāfira</strong> — the one who stands at the threshold, at the edge between worlds.</p>
+
+      <p>The descent and the threshold are <strong>directional complements</strong>. A descent needs a threshold to become an arrival. A threshold needs someone descending to become a doorway rather than just a border.</p>
+
+      <div class="wisdom">
+        <p class="wisdom-text">Razlān descends — and Shāfira is standing at the exact place where he arrives.</p>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Closing -->
+    <section class="section" id="closing">
+      <div class="section-header">
+        <div class="section-subtitle">Closing</div>
+        <h2 class="section-title">The Name God Calls You Both</h2>
+      </div>
+
+      <p>There is one name above all names in this tradition — one address that encompasses both of you, all your work, your marriage, your families, your contributions to society.</p>
+
+      <div class="quote">
+        <p class="quote-arabic">يَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ ارْجِعِي إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً فَادْخُلِي فِي عِبَادِي وَادْخُلِي جَنَّتِي</p>
+        <p class="quote-translation">"O soul at peace: return to your Lord, pleased and pleasing. Enter among My servants. Enter My Garden."</p>
+        <p class="quote-source">— Sūrat al-Fajr, 89:27-30</p>
+      </div>
+
+      <p><strong>Al-nafs al-muṭmaʾinnah</strong> — the soul at rest, at peace, in alignment. This is what a life lived from the <em>nūr</em> and the <em>dhamīr</em> — from the light and the conscience — eventually becomes.</p>
+
+      <p>Not perfect. Not without struggle. But settled in its orientation — like the dot beneath the bā', small and invisible, but exactly where it needs to be.</p>
+
+      <div style="text-align: center; margin: 48px 0; font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--moss);">
+        <p class="name-highlight" style="display: inline-block; padding: 8px 16px;">Nurshafira</p>
+        <p style="margin: 16px 0; font-size: 20px; color: var(--text-light);">×</p>
+        <p class="name-highlight" style="display: inline-block; padding: 8px 16px;">Muḥammad Razlān Dhamīr</p>
+      </div>
+
+      <p style="text-align: center; font-style: italic; margin-top: 40px;">Two names. One sentence. An ocean of meaning — and a lifetime to sound it.</p>
+
+      <div style="text-align: center; margin-top: 48px;">
+        <p class="arabic" style="font-size: 20px; color: var(--moss);">وفي أسمائكم آياتٌ لمن تدبّر</p>
+        <p style="font-style: italic; color: var(--text-light); margin-top: 8px; font-size: 15px;">"And in your names are signs for those who contemplate."</p>
+      </div>
+    </section>
+
+    <!-- References -->
+    <div class="references">
+      <h3 class="references-title">Key References</h3>
+      <div class="reference-item">
+        <span class="reference-title">Asās al-Balāghah</span>
+        <span class="reference-author">— Al-Zamakhsharī (d. 538H)</span>
+      </div>
+      <div class="reference-item">
+        <span class="reference-title">Futūḥāt al-Makkiyyah</span>
+        <span class="reference-author">— Ibn ʿArabī (d. 638H)</span>
+      </div>
+      <div class="reference-item">
+        <span class="reference-title">Mishkāt al-Anwār</span>
+        <span class="reference-author">— Al-Ghazālī (d. 505H)</span>
+      </div>
+      <div class="reference-item">
+        <span class="reference-title">Iḥyāʾ ʿUlūm al-Dīn</span>
+        <span class="reference-author">— Al-Ghazālī</span>
+      </div>
+      <div class="reference-item">
+        <span class="reference-title">Laṭāʾif al-Ishārāt</span>
+        <span class="reference-author">— Al-Qushayrī (d. 465H)</span>
+      </div>
+      <div class="reference-item">
+        <span class="reference-title">Lawāʾiḥ</span>
+        <span class="reference-author">— ʿAbd al-Raḥmān al-Jāmī (d. 898H)</span>
+      </div>
+    </div>
+
+  </article>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-icon">🌿</div>
+  <p class="footer-text">
+    <span class="arabic">إِنَّ أَحَبَّ الْأَعْمَالِ إِلَى اللَّهِ أَدْوَمُهَا وَإِنْ قَلَّ</span><br>
+    Allah loves small but consistent deeds
+  </p>
+  
+  <a href="https://webdevsha.github.io/myqurangarden/" class="back-to-garden">
+    <span>🌸</span>
+    <span>Back to Quran Garden</span>
+  </a>
+</div>
+
+<!-- Back to Top Button -->
+<button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+<script>
+// Toggle TOC collapse
+function toggleTOC() {
+  const tocList = document.getElementById('tocList');
+  const tocToggle = document.getElementById('tocToggle');
+  
+  tocList.classList.toggle('collapsed');
+  tocToggle.classList.toggle('collapsed');
+}
+
+// Smooth scroll for TOC links
+document.querySelectorAll('.toc-link').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    const targetSection = document.querySelector(targetId);
+    
+    if (targetSection) {
+      const offset = 100;
+      const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - offset;
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+      
+      // Update active state
+      document.querySelectorAll('.toc-link').forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    }
+  });
+});
+
+// Show/hide back to top button
+window.addEventListener('scroll', function() {
+  const backToTop = document.getElementById('backToTop');
+  if (window.pageYOffset > 400) {
+    backToTop.classList.add('show');
+  } else {
+    backToTop.classList.remove('show');
+  }
+  
+  // Update active TOC link based on scroll position
+  const sections = document.querySelectorAll('.section');
+  let currentSection = '';
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 200;
+    if (window.pageYOffset >= sectionTop) {
+      currentSection = section.getAttribute('id');
+    }
+  });
+  
+  document.querySelectorAll('.toc-link').forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + currentSection) {
+      link.classList.add('active');
+    }
+  });
+});
+
+// Scroll to top function
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+// Set first TOC item as active on load
+document.addEventListener('DOMContentLoaded', function() {
+  const firstTocLink = document.querySelector('.toc-link');
+  if (firstTocLink) {
+    firstTocLink.classList.add('active');
+  }
+});
+</script>
+
+</body>
+</html>
