@@ -1363,7 +1363,7 @@
     
     <div class="notes-list">
       <!-- Note 1: Bā' of Marriage -->
-      <a href="/notes/ba-reflection.html" class="note-item">
+      <a href="notes/ba-reflection.html" class="note-item">
         <div class="note-item-icon">
           <svg viewBox="0 0 100 120">
             <line x1="50" y1="120" x2="50" y2="55" stroke="#6b8e6b" stroke-width="3"/>
@@ -1378,7 +1378,7 @@
       </a>
       
       <!-- Note 2: Names Reflection -->
-      <a href="/notes/razlan-shafira-names.html" class="note-item">
+      <a href="notes/razlan-shafira-names.html" class="note-item">
         <div class="note-item-icon">
           <svg viewBox="0 0 100 120">
             <line x1="50" y1="120" x2="50" y2="60" stroke="#6b8e6b" stroke-width="3"/>
@@ -1764,10 +1764,10 @@ function renderGarden() {
       filledCount++;
       const el = GARDEN_ELEMENTS.find(e => e.id === entry.elementId) || GARDEN_ELEMENTS[0];
       const dots = [
-        entry.activities.recite ? '<span class="dot-mini" style="background:var(--sage)"></span>' : '',
-        entry.activities.listen ? '<span class="dot-mini" style="background:var(--sky)"></span>' : '',
-        entry.activities.tafseer ? '<span class="dot-mini" style="background:var(--lavender)"></span>' : '',
-        entry.activities.memorize ? '<span class="dot-mini" style="background:var(--terracotta)"></span>' : '',
+        entry.activities?.recite ? '<span class="dot-mini" style="background:var(--sage)"></span>' : '',
+        entry.activities?.listen ? '<span class="dot-mini" style="background:var(--sky)"></span>' : '',
+        entry.activities?.tafseer ? '<span class="dot-mini" style="background:var(--lavender)"></span>' : '',
+        entry.activities?.memorize ? '<span class="dot-mini" style="background:var(--terracotta)"></span>' : '',
       ].join('');
 
       // Create excerpt for hover
@@ -1805,6 +1805,7 @@ function updateStats() {
   let recite=0, listen=0, tafseer=0, memorize=0;
   for(const d in entries) {
     const e = entries[d];
+    if(!e || !e.activities) continue;
     if(e.activities.recite) recite++;
     if(e.activities.listen) listen++;
     if(e.activities.tafseer) tafseer++;
@@ -1968,10 +1969,10 @@ function openViewModal(day) {
   const el = GARDEN_ELEMENTS.find(e => e.id === entry.elementId) || GARDEN_ELEMENTS[0];
 
   const actBadges = [
-    entry.activities.recite ? `<span class="activity-badge" style="background:rgba(157,180,160,0.15);color:var(--moss)">📖 Reciting</span>` : '',
-    entry.activities.listen ? `<span class="activity-badge" style="background:rgba(168,200,220,0.2);color:#5a8aa0">🎧 Listening</span>` : '',
-    entry.activities.tafseer ? `<span class="activity-badge" style="background:rgba(196,181,212,0.2);color:#8a7aa8">📚 Tafseer</span>` : '',
-    entry.activities.memorize ? `<span class="activity-badge" style="background:rgba(212,132,108,0.15);color:var(--terracotta)">💎 Memorize</span>` : '',
+    entry.activities?.recite ? `<span class="activity-badge" style="background:rgba(157,180,160,0.15);color:var(--moss)">📖 Reciting</span>` : '',
+    entry.activities?.listen ? `<span class="activity-badge" style="background:rgba(168,200,220,0.2);color:#5a8aa0">🎧 Listening</span>` : '',
+    entry.activities?.tafseer ? `<span class="activity-badge" style="background:rgba(196,181,212,0.2);color:#8a7aa8">📚 Tafseer</span>` : '',
+    entry.activities?.memorize ? `<span class="activity-badge" style="background:rgba(212,132,108,0.15);color:var(--terracotta)">💎 Memorize</span>` : '',
   ].filter(Boolean).join('');
 
   document.getElementById('modalContent').innerHTML = `
@@ -2007,13 +2008,19 @@ function deleteEntry(day) {
 
 function editEntry(day) {
   const entry = entries[day];
+  if(!entry) {
+    showToast('error', 'Error', 'Could not find entry for Day ' + day);
+    return;
+  }
   closeModal();
   setTimeout(() => {
     openAddModal(day);
     setTimeout(() => {
-      Object.keys(entry.activities).forEach(a => {
-        if(entry.activities[a]) toggleActivity(a);
-      });
+      if(entry.activities) {
+        Object.keys(entry.activities).forEach(a => {
+          if(entry.activities[a]) toggleActivity(a);
+        });
+      }
       if(entry.notes) document.getElementById('entryNotes').value = entry.notes;
       if(entry.email) document.getElementById('entryEmail').value = entry.email;
       if(entry.todayPages) document.getElementById('todayPages').value = entry.todayPages;
