@@ -26,8 +26,8 @@ jobs:
         env:
           BREVO_KEY: ${{ secrets.BREVO_API_KEY }}
         run: |
-          # Create build directories
-          mkdir -p _site/notes
+          # Create build directory
+          mkdir -p _site
           
           # Add .nojekyll to bypass GitHub Pages default Jekyll processing
           touch _site/.nojekyll
@@ -42,12 +42,12 @@ jobs:
           # Copy Quran Garden as index.html
           cp quran-garden-final.html _site/index.html
           
-          # Copy Marriage Reflection to notes subfolder
-          if [ -f "marriage-reflection.html" ]; then
-            cp marriage-reflection.html _site/notes/ba-reflection.html
-            echo "✅ Copied marriage-reflection.html to /notes/ba-reflection.html"
+          # Copy the entire notes folder if it exists
+          if [ -d "notes" ]; then
+            cp -r notes _site/
+            echo "✅ Copied /notes folder with all contents"
           else
-            echo "⚠️ marriage-reflection.html not found, skipping..."
+            echo "⚠️ /notes folder not found"
           fi
           
           # Safely inject API key and enable Brevo if the secret exists
@@ -67,6 +67,10 @@ jobs:
           else
             echo "⚠️ API key secret not found. Email notifications will remain disabled."
           fi
+          
+          # List what's being deployed for verification
+          echo "📦 Files being deployed:"
+          ls -laR _site/
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
