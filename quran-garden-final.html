@@ -2050,8 +2050,13 @@ document.getElementById('totalPagesInput').value = totalPages || '';
 updateKhatam();
 renderGarden();
 </script>
-  <!-- STEP 3: Add this JavaScript before closing </body> tag -->
+
+<!-- Notes Modal Script -->
 <script>
+// Notes Modal functions
+function openNotesModal() {
+  document.getElementById('notesModal').classList.add('show');
+}
 // Notes Modal functions
 function openNotesModal() {
   document.getElementById('notesModal').classList.add('show');
