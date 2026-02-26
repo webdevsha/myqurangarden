@@ -1296,6 +1296,7 @@
   }
 </style>
   
+<base target="_blank">
 </head>
 <body>
 
@@ -1612,7 +1613,7 @@ async function sendBrevoEmail(recipientEmail, day, entry) {
   const emailData = {
     sender: {
       name: "Quran Garden",
-      email: "hai@shafiranoh.com" // Replace with your verified sender email
+      email: "hai@shafiranoh.com"
     },
     to: [
       {
@@ -1664,6 +1665,9 @@ async function sendBrevoEmail(recipientEmail, day, entry) {
             <p style="margin-top: 20px;">Visit your <a href="https://yourwebsite.com/quran-garden" style="color: #6b8e6b;">Quran Garden</a></p>
           </div>
         </div>
+      </body>
+      </html>
+    `
   };
 
   try {
@@ -1687,16 +1691,12 @@ async function sendBrevoEmail(recipientEmail, day, entry) {
     const result = await response.json();
     console.log('Email sent successfully via Brevo:', result);
     
-    // Show success toast
     showToast('success', 'Email Sent! 📧', `Notification sent to ${recipientEmail}`);
     
     return result;
   } catch (error) {
     console.error('Error sending email via Brevo:', error);
-    
-    // Show error toast
     showToast('error', 'Email Failed', `Could not send to ${recipientEmail}. ${error.message || 'Please try again.'}`);
-    
     throw error;
   }
 }
@@ -1770,7 +1770,6 @@ function renderGarden() {
         entry.activities?.memorize ? '<span class="dot-mini" style="background:var(--terracotta)"></span>' : '',
       ].join('');
 
-      // Create excerpt for hover
       const excerpt = entry.notes ? entry.notes.substring(0, 80) + (entry.notes.length > 80 ? '...' : '') : '';
       const excerptHTML = excerpt ? `
         <div class="hover-excerpt">
@@ -1944,21 +1943,16 @@ async function saveEntry(day) {
 
   localStorage.setItem('quranGarden', JSON.stringify(entries));
   
-  // Close modal and render garden first (don't wait for email)
   closeModal();
   renderGarden();
   
-  // Send email notification via Brevo if email provided (async, non-blocking)
   if(email) {
     try {
       await sendBrevoEmail(email, day, entries[day]);
     } catch (error) {
       console.error('Failed to send email notification:', error);
-      // Error toast already shown in sendBrevoEmail function
-      // Don't block the user - entry is already saved
     }
   } else {
-    // Show success without email
     showToast('success', 'Entry Saved! 🌱', `Day ${day} planted successfully`);
   }
 }
@@ -2053,11 +2047,6 @@ renderGarden();
 
 <!-- Notes Modal Script -->
 <script>
-// Notes Modal functions
-function openNotesModal() {
-  document.getElementById('notesModal').classList.add('show');
-}
-// Notes Modal functions
 function openNotesModal() {
   document.getElementById('notesModal').classList.add('show');
 }
@@ -2070,7 +2059,6 @@ function closeNotesModal(event) {
   }
 }
 
-// Close modal with Escape key
 document.addEventListener('keydown', function(event) {
   if (event.key === 'Escape') {
     document.getElementById('notesModal').classList.remove('show');
