@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raya 2026 Gratitude Note</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --cream: #faf8f3;
+    --warm-white: #fdfbf7;
+    --sage: #9db4a0;
+    --sage-light: #c5d6c7;
+    --moss: #6b8e6b;
+    --terracotta: #d4846c;
+    --terracotta-light: #e8a894;
+    --sand: #e6ddd0;
+    --lavender: #c4b5d4;
+    --sky: #a8c8dc;
+    --butter: #f0d78c;
+    --text: #4a453e;
+    --text-light: #8a8075;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: linear-gradient(135deg, var(--cream) 0%, var(--sand) 100%);
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-x: hidden;
+  }
+
+  .title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 5vw, 42px);
+    color: var(--moss);
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .envelope-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1.6;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .envelope-container:hover:not(.opened) {
+    transform: scale(1.02);
+  }
+
+  .envelope-container.opened {
+    cursor: default;
+  }
+
+  /* Envelope parts */
+  .envelope {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .envelope-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--warm-white);
+    border: 3px solid var(--sage);
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(135deg, var(--sage-light) 0%, var(--sage) 100%);
+    border: 3px solid var(--sage);
+    border-bottom: none;
+    transform-origin: top center;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 3;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    box-shadow: 0 5px 20px rgba(107, 142, 107, 0.3);
+  }
+
+  .envelope-container.opened .envelope-flap {
+    transform: rotateX(180deg);
+  }
+
+  .seal {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--terracotta) 0%, var(--terracotta-light) 100%);
+    border-radius: 50%;
+    border: 3px solid var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    z-index: 4;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(212, 132, 108, 0.4);
+  }
+
+  .envelope-container.opened .seal {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  .letter {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 90%;
+    height: 80%;
+    background: white;
+    border: 2px solid var(--sand);
+    border-radius: 4px;
+    z-index: 2;
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  .envelope-container.opened .letter {
+    top: -120%;
+    transform: translate(-50%, 0) scale(1);
+    z-index: 5;
+  }
+
+  .letter-content {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .click-hint {
+    text-align: center;
+    margin-top: 30px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--text-light);
+    font-style: italic;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+
+  .envelope-container.opened ~ .click-hint {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Fullscreen overlay */
+  .fullscreen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(250, 248, 243, 0.98);
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .fullscreen-overlay.show {
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+  }
+
+  .fullscreen-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 80px 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .fullscreen-image {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  }
+
+  .fullscreen-controls {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    font-family: 'Inter', sans-serif;
+    padding: 14px 32px;
+    border-radius: 30px;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-download {
+    background: linear-gradient(135deg, var(--moss) 0%, var(--sage) 100%);
+    color: white;
+    box-shadow: 0 4px 16px rgba(107, 142, 107, 0.3);
+  }
+
+  .btn-download:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(107, 142, 107, 0.4);
+  }
+
+  .btn-close {
+    background: var(--sand);
+    color: var(--text);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-close:hover {
+    background: var(--sage-light);
+    transform: translateY(-2px);
+  }
+
+  .close-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    font-size: 24px;
+    color: var(--text);
+  }
+
+  .close-icon:hover {
+    transform: scale(1.1);
+    background: var(--sage-light);
+  }
+
+  @media (max-width: 768px) {
+    .title {
+      margin-bottom: 30px;
+    }
+
+    .envelope-container {
+      max-width: 90%;
+    }
+
+    .seal {
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+    }
+
+    .click-hint {
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    .fullscreen-content {
+      padding: 70px 10px 10px;
+    }
+
+    .fullscreen-controls {
+      padding: 16px;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      font-size: 14px;
+    }
+  }
+
+  /* Animation for letter peeking out */
+  @keyframes peek {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, -10px); }
+  }
+
+  .envelope-container:hover:not(.opened) .letter {
+    animation: peek 1.5s ease-in-out infinite;
+  }
+</style>
+</head>
+<body>
+
+<h1 class="title">Raya 2026 Gratitude Note</h1>
+
+<div class="envelope-container" id="envelopeContainer">
+  <div class="envelope">
+    <div class="envelope-back"></div>
+    <div class="letter">
+      <img src="your-gratitude-note.png" alt="Gratitude Note" class="letter-content" id="letterImage">
+    </div>
+    <div class="envelope-flap"></div>
+    <div class="seal">🌿</div>
+  </div>
+</div>
+
+<p class="click-hint">Click to open</p>
+
+<!-- Fullscreen overlay -->
+<div class="fullscreen-overlay" id="fullscreenOverlay">
+  <div class="close-icon" onclick="closeFullscreen()">×</div>
+  <div class="fullscreen-content">
+    <img src="your-gratitude-note.png" alt="Gratitude Note" class="fullscreen-image" id="fullscreenImage">
+  </div>
+  <div class="fullscreen-controls">
+    <button class="btn btn-close" onclick="closeFullscreen()">Close</button>
+    <button class="btn btn-download" onclick="downloadImage()">
+      <span>📥</span>
+      <span>Download Note</span>
+    </button>
+  </div>
+</div>
+
+<script>
+const envelopeContainer = document.getElementById('envelopeContainer');
+const fullscreenOverlay = document.getElementById('fullscreenOverlay');
+let isOpened = false;
+
+envelopeContainer.addEventListener('click', function() {
+  if (!isOpened) {
+    isOpened = true;
+    envelopeContainer.classList.add('opened');
+    
+    // Show fullscreen after animation
+    setTimeout(() => {
+      fullscreenOverlay.classList.add('show');
+    }, 1000);
+  }
+});
+
+function closeFullscreen() {
+  fullscreenOverlay.classList.remove('show');
+  
+  // Optional: reset envelope after closing
+  setTimeout(() => {
+    envelopeContainer.classList.remove('opened');
+    isOpened = false;
+  }, 400);
+}
+
+function downloadImage() {
+  const link = document.createElement('a');
+  link.href = 'your-gratitude-note.png';
+  link.download = 'Raya-2026-Gratitude-Note.png';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+// Close fullscreen with Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && fullscreenOverlay.classList.contains('show')) {
+    closeFullscreen();
+  }
+});
+</script>
+
+</body>
+</html>
