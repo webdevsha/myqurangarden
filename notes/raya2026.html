@@ -234,6 +234,62 @@
     pointer-events: none;
   }
 
+  /* Add these media query rules at the end of your CSS, inside the existing @media (max-width: 768px) block */
+
+@media (max-width: 768px) {
+  .title {
+    font-size: clamp(24px, 6vw, 32px);
+    margin-bottom: 24px;
+  }
+
+  .envelope-to {
+    font-size: clamp(12px, 3vw, 14px);
+    margin-bottom: 8px;
+  }
+
+  .envelope-name {
+    font-size: clamp(20px, 5vw, 28px);
+    margin-bottom: 12px;
+  }
+
+  .envelope-message {
+    font-size: clamp(14px, 3.5vw, 18px);
+    line-height: 1.5;
+    max-width: 250px;
+  }
+
+  .click-hint {
+    font-size: 14px;
+    margin-top: 16px;
+  }
+}
+
+  /* For very small screens */
+  @media (max-width: 480px) {
+    .title {
+      font-size: 16px;
+    }
+  
+    .envelope-back {
+      padding: 24px 16px;
+    }
+  
+    .envelope-name {
+      font-size: 16px;
+    }
+  
+    .envelope-message {
+      font-size: 14px;
+      max-width: 220px;
+    }
+
+  .seal {
+    width: 46px;
+    height: 46px;
+    font-size: 16px;
+  }
+}
+
   /* Fullscreen overlay */
   .fullscreen-overlay {
     position: fixed;
