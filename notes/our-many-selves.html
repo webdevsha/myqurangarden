@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sha & R — The Many Selves Navigation Guide</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+
+<!-- Razfira Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ─── RAZFIRA BRAND TOKENS ───────────────────────────────────────────── */
+:root {
+  /* Surfaces */
+  --cream:        #faf8f3;
+  --warm-white:   #fdfbf7;
+  --sand:         #e6ddd0;
+
+  /* Primary — moss/sage (trust, growth, Islamic green undertone) */
+  --moss:         #6b8e6b;
+  --sage:         #9db4a0;
+  --sage-light:   #c5d6c7;
+
+  /* Accent — terracotta (warmth, courage, naming) */
+  --terracotta:   #d4846c;
+  --terracotta-light: #e8a894;
+
+  /* Secondary accents */
+  --lavender:     #c4b5d4;
+  --sky:          #a8c8dc;
+  --butter:       #f0d78c;
+
+  /* Text */
+  --text:         #4a453e;
+  --text-light:   #8a8075;
+  --text-muted:   #b0a898;
+
+  /* Functional */
+  --sha-color:    var(--lavender);
+  --r-color:      var(--sky);
+  --shared-color: var(--sage-light);
+  --enrich-color: #c8e6c9;
+  --degrade-color:#f5c4b3;
+  --separate-color:var(--sand);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--cream);
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  line-height: 1.85;
+  font-size: 16px;
+}
+
+/* ─── HEADER ─────────────────────────────────────────────────────────── */
+.header {
+  background: linear-gradient(135deg, var(--moss) 0%, var(--sage) 60%, #b8ceb8 100%);
+  color: white;
+  padding: 64px 24px 88px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 15% 40%, rgba(255,255,255,0.09) 0%, transparent 50%),
+    radial-gradient(circle at 85% 70%, rgba(240,215,140,0.07) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.header-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(30px, 6vw, 52px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.header-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(15px, 2.5vw, 19px);
+  font-style: italic;
+  opacity: 0.88;
+  margin-top: 14px;
+}
+
+.header-date {
+  font-size: 12px;
+  opacity: 0.6;
+  margin-top: 20px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+}
+
+.header-content { position: relative; max-width: 760px; margin: 0 auto; }
+
+/* ─── CONTAINER ──────────────────────────────────────────────────────── */
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* ─── ARTICLE CARD ───────────────────────────────────────────────────── */
+.article {
+  background: white;
+  border-radius: 24px;
+  padding: clamp(28px, 6vw, 56px);
+  margin-top: -44px;
+  position: relative;
+  box-shadow: 0 16px 56px rgba(74,69,62,0.09);
+  animation: fadeUp 0.6s ease-out both;
+}
+
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(24px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ─── GOLDEN RULE BANNER ─────────────────────────────────────────────── */
+.golden-rule {
+  background: linear-gradient(135deg, rgba(157,180,160,0.12) 0%, rgba(212,132,108,0.10) 100%);
+  border: 1.5px solid var(--sage-light);
+  border-radius: 20px;
+  padding: 32px 36px;
+  margin-bottom: 48px;
+  text-align: center;
+  position: relative;
+}
+
+.golden-rule::before {
+  content: '✦';
+  position: absolute;
+  top: -13px; left: 50%; transform: translateX(-50%);
+  background: white;
+  padding: 0 14px;
+  color: var(--terracotta);
+  font-size: 18px;
+}
+
+.golden-rule-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 3vw, 24px);
+  font-style: italic;
+  color: var(--moss);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.golden-rule-sub {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-top: 10px;
+  letter-spacing: 0.02em;
+}
+
+/* ─── TOC ────────────────────────────────────────────────────────────── */
+.toc-wrapper {
+  position: sticky;
+  top: 20px;
+  float: right;
+  width: 268px;
+  margin-left: 36px;
+  margin-bottom: 36px;
+  z-index: 10;
+}
+
+.toc {
+  background: var(--warm-white);
+  border-radius: 18px;
+  padding: 22px;
+  border: 1.5px solid var(--sand);
+  box-shadow: 0 6px 20px rgba(74,69,62,0.06);
+}
+
+.toc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1.5px solid var(--sand);
+  cursor: pointer;
+  user-select: none;
+}
+
+.toc-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--moss);
+}
+
+.toc-toggle {
+  width: 22px; height: 22px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--sand);
+  border-radius: 50%;
+  color: var(--moss);
+  font-size: 12px;
+  transition: transform 0.3s;
+}
+
+.toc-toggle.collapsed { transform: rotate(180deg); }
+
+.toc-list {
+  list-style: none;
+  max-height: 600px;
+  overflow: hidden;
+  transition: max-height 0.35s ease-out, opacity 0.3s;
+}
+
+.toc-list.collapsed { max-height: 0; opacity: 0; }
+
+.toc-item { margin-bottom: 4px; }
+
+.toc-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 13px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  line-height: 1.4;
+}
+
+.toc-link:hover { background: rgba(157,180,160,0.12); color: var(--moss); transform: translateX(3px); }
+.toc-link.active { background: rgba(157,180,160,0.16); color: var(--moss); font-weight: 500; }
+
+.toc-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--sage-light);
+}
+
+.toc-link.active .toc-dot { background: var(--terracotta); }
+
+/* ─── SECTION STRUCTURE ──────────────────────────────────────────────── */
+.section {
+  margin-bottom: 60px;
+  animation: fadeUp 0.7s ease-out both;
+}
+
+.section:nth-child(1) { animation-delay: 0.05s; }
+.section:nth-child(2) { animation-delay: 0.10s; }
+.section:nth-child(3) { animation-delay: 0.15s; }
+.section:nth-child(4) { animation-delay: 0.20s; }
+.section:nth-child(5) { animation-delay: 0.25s; }
+.section:nth-child(6) { animation-delay: 0.30s; }
+.section:nth-child(7) { animation-delay: 0.35s; }
+.section:last-child { margin-bottom: 0; }
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--terracotta);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 4vw, 30px);
+  color: var(--moss);
+  font-weight: 500;
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.section-divider {
+  width: 48px; height: 2px;
+  background: linear-gradient(90deg, var(--sage), var(--terracotta));
+  border-radius: 2px;
+  margin: 14px 0 28px;
+}
+
+/* ─── TYPOGRAPHY ──────────────────────────────────────────────────────── */
+p { margin-bottom: 18px; line-height: 1.85; }
+p:last-child { margin-bottom: 0; }
+
+.lead {
+  font-size: 17px;
+  color: var(--moss);
+  font-weight: 400;
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+
+strong { font-weight: 600; color: var(--moss); }
+em { font-style: italic; }
+
+/* ─── CALLOUT TYPES ──────────────────────────────────────────────────── */
+.pullquote {
+  background: linear-gradient(135deg, rgba(157,180,160,0.08), rgba(212,132,108,0.07));
+  border-left: 3.5px solid var(--terracotta);
+  border-radius: 0 16px 16px 0;
+  padding: 26px 30px;
+  margin: 32px 0;
+}
+
+.pullquote-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 3vw, 23px);
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.wisdom {
+  background: linear-gradient(135deg, rgba(196,181,212,0.09), rgba(168,200,220,0.09));
+  border: 1.5px solid var(--lavender);
+  border-radius: 18px;
+  padding: 28px 32px;
+  margin: 32px 0;
+  position: relative;
+}
+
+.wisdom::before {
+  content: '✦';
+  position: absolute;
+  top: -11px; left: 28px;
+  background: white; padding: 0 10px;
+  color: var(--lavender); font-size: 17px;
+}
+
+.wisdom-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.practice {
+  background: var(--warm-white);
+  border-left: 3.5px solid var(--sage);
+  border-radius: 0 12px 12px 0;
+  padding: 22px 26px;
+  margin: 28px 0;
+}
+
+.practice-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--sage);
+  margin-bottom: 10px;
+}
+
+.practice-text { line-height: 1.8; }
+
+/* ─── DOMAIN TABLE ───────────────────────────────────────────────────── */
+.domain-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.domain-card {
+  border-radius: 16px;
+  padding: 22px 24px;
+  border: 1.5px solid;
+}
+
+.domain-card.sha {
+  background: rgba(196,181,212,0.08);
+  border-color: var(--lavender);
+}
+
+.domain-card.r {
+  background: rgba(168,200,220,0.08);
+  border-color: var(--sky);
+}
+
+.domain-card-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.domain-card.sha .domain-card-label { color: #9a85b8; }
+.domain-card.r   .domain-card-label { color: #5a98b8; }
+
+.domain-list { list-style: none; }
+
+.domain-list li {
+  font-size: 14px;
+  color: var(--text);
+  padding: 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.domain-list li::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.domain-card.sha .domain-list li::before { background: var(--lavender); }
+.domain-card.r   .domain-list li::before { background: var(--sky); }
+
+/* ─── TOPOLOGY TABLE ─────────────────────────────────────────────────── */
+.topo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 24px 0;
+}
+
+.topo-card {
+  border-radius: 14px;
+  padding: 18px 20px;
+  border: 1.5px solid;
+}
+
+.topo-card.fits {
+  background: rgba(200,230,201,0.15);
+  border-color: #a5c9a5;
+}
+
+.topo-card.nope {
+  background: rgba(245,196,179,0.15);
+  border-color: var(--terracotta-light);
+}
+
+.topo-card-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+
+.topo-card.fits .topo-card-label { color: #5a8a5a; }
+.topo-card.nope .topo-card-label { color: var(--terracotta); }
+
+.topo-list { list-style: none; }
+.topo-list li {
+  font-size: 14px;
+  color: var(--text);
+  padding: 3px 0;
+  padding-left: 14px;
+  position: relative;
+}
+.topo-card.fits .topo-list li::before { content: '✓'; position:absolute; left:0; color:#5a8a5a; font-size:12px; }
+.topo-card.nope .topo-list li::before { content: '✗'; position:absolute; left:0; color:var(--terracotta); font-size:12px; }
+
+/* ─── PARTS CARDS ────────────────────────────────────────────────────── */
+.parts-grid { display: flex; flex-direction: column; gap: 18px; margin: 24px 0; }
+
+.part-card {
+  border-radius: 16px;
+  padding: 24px 26px;
+  border: 1.5px solid;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+.part-card:hover { box-shadow: 0 6px 24px rgba(74,69,62,0.08); }
+
+.part-card.sha-part {
+  background: rgba(196,181,212,0.06);
+  border-color: rgba(196,181,212,0.5);
+}
+
+.part-card.r-part {
+  background: rgba(168,200,220,0.06);
+  border-color: rgba(168,200,220,0.5);
+}
+
+.part-card.self-card {
+  background: linear-gradient(135deg, rgba(157,180,160,0.1), rgba(240,215,140,0.08));
+  border-color: var(--sage-light);
+  text-align: center;
+}
+
+.part-type-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.sha-part .part-type-badge {
+  background: rgba(196,181,212,0.25);
+  color: #7a65a8;
+}
+
+.r-part .part-type-badge {
+  background: rgba(168,200,220,0.25);
+  color: #4a78a8;
+}
+
+.self-card .part-type-badge {
+  background: rgba(107,142,107,0.18);
+  color: var(--moss);
+}
+
+.part-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--moss);
+  margin-bottom: 6px;
+  line-height: 1.25;
+}
+
+.part-ifs-type {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 14px;
+}
+
+.part-rows { display: flex; flex-direction: column; gap: 8px; }
+
+.part-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.part-row-label {
+  font-weight: 500;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  padding-top: 1px;
+  align-self: start;
+}
+
+.part-row-value { color: var(--text); }
+
+.part-row.gift .part-row-label   { color: #6b8e6b; }
+.part-row.burden .part-row-label { color: var(--terracotta); }
+.part-row.watch .part-row-label  { color: #9a85b8; }
+.part-row.leads .part-row-label  { color: var(--sage); }
+.part-row.note .part-row-label   { color: var(--sky); }
+
+/* ─── PERSON SUBHEADER ────────────────────────────────────────────────── */
+.person-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 40px 0 22px;
+  padding-bottom: 14px;
+  border-bottom: 1.5px solid var(--sand);
+}
+
+.person-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.person-dot.sha { background: var(--lavender); }
+.person-dot.r   { background: var(--sky); }
+
+.person-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.person-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-left: auto;
+  font-style: italic;
+}
+
+/* ─── IFS PRINCIPLE ──────────────────────────────────────────────────── */
+.ifs-principle {
+  background: linear-gradient(135deg, rgba(157,180,160,0.1), rgba(196,181,212,0.1));
+  border-radius: 20px;
+  padding: 32px 36px;
+  margin: 36px 0;
+  border: 1.5px solid var(--sage-light);
+  text-align: center;
+}
+
+.ifs-principle-main {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(17px, 3vw, 21px);
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+
+.ifs-question {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--moss);
+  line-height: 1.6;
+}
+
+/* ─── CONTAINER CARDS ────────────────────────────────────────────────── */
+.container-cards { display: flex; flex-direction: column; gap: 18px; margin: 24px 0; }
+
+.container-card {
+  border-radius: 16px;
+  padding: 24px 26px;
+  border: 1.5px solid var(--sand);
+  background: var(--warm-white);
+}
+
+.container-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--moss);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.container-tag {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 2px 9px;
+  border-radius: 20px;
+  background: rgba(157,180,160,0.2);
+  color: var(--moss);
+}
+
+.container-rows { display: flex; flex-direction: column; gap: 8px; }
+
+.container-row {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.container-row-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  padding-top: 1px;
+  align-self: start;
+}
+
+.container-row.who .container-row-label   { color: var(--sage); }
+.container-row.thrives .container-row-label { color: #5a8a5a; }
+.container-row.friction .container-row-label { color: var(--terracotta); }
+.container-row.gift .container-row-label  { color: var(--moss); }
+
+.container-note {
+  font-style: italic;
+  font-size: 13.5px;
+  color: var(--text-muted);
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--sand);
+  line-height: 1.6;
+}
+
+/* ─── ENRICHES / DETERIORATES ────────────────────────────────────────── */
+.eval-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.eval-card {
+  border-radius: 14px;
+  padding: 20px 20px;
+  border: 1.5px solid;
+}
+
+.eval-card.enrich {
+  background: rgba(200,230,201,0.14);
+  border-color: #a5c9a5;
+}
+
+.eval-card.degrade {
+  background: rgba(245,196,179,0.14);
+  border-color: var(--terracotta-light);
+}
+
+.eval-card.separate {
+  background: rgba(230,221,208,0.25);
+  border-color: var(--sand);
+}
+
+.eval-card-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 14px;
+}
+
+.eval-card.enrich  .eval-card-title { color: #5a8a5a; }
+.eval-card.degrade .eval-card-title { color: var(--terracotta); }
+.eval-card.separate .eval-card-title { color: var(--text-light); }
+
+.eval-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+
+.eval-list li {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text);
+  padding-left: 16px;
+  position: relative;
+}
+
+.eval-card.enrich  .eval-list li::before { content: '↑'; position:absolute; left:0; color:#5a8a5a; font-size:12px; }
+.eval-card.degrade .eval-list li::before { content: '↓'; position:absolute; left:0; color:var(--terracotta); font-size:12px; }
+.eval-card.separate .eval-list li::before { content: '–'; position:absolute; left:0; color:var(--text-muted); font-size:12px; }
+
+/* ─── SIGNALS TABLE ──────────────────────────────────────────────────── */
+.signals-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  margin: 20px 0;
+}
+
+.signals-table th {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  padding: 0 16px 8px;
+  text-align: left;
+  border-bottom: 1.5px solid var(--sand);
+}
+
+.signals-table td {
+  padding: 12px 16px;
+  font-size: 14px;
+  line-height: 1.55;
+  background: var(--warm-white);
+  vertical-align: top;
+}
+
+.signals-table tr td:first-child {
+  border-radius: 10px 0 0 10px;
+  border-left: 3px solid var(--sage-light);
+}
+
+.signals-table tr td:last-child {
+  border-radius: 0 10px 10px 0;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* ─── DIVIDER ─────────────────────────────────────────────────────────── */
+.divider {
+  width: 52px; height: 2px;
+  background: linear-gradient(90deg, var(--sage), var(--terracotta));
+  margin: 52px auto;
+  border-radius: 2px;
+}
+
+/* ─── CLOSING BLOCK ──────────────────────────────────────────────────── */
+.closing-block {
+  background: linear-gradient(135deg, rgba(107,142,107,0.08), rgba(212,132,108,0.07));
+  border-radius: 20px;
+  padding: 36px 40px;
+  text-align: center;
+  margin-top: 48px;
+  border: 1.5px solid var(--sage-light);
+}
+
+.closing-main {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 500;
+  color: var(--moss);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.closing-secondary {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.closing-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ─── FOOTER ─────────────────────────────────────────────────────────── */
+.footer {
+  text-align: center;
+  padding: 48px 24px 40px;
+  color: var(--text-light);
+}
+
+.footer-divider {
+  width: 32px; height: 1.5px;
+  background: var(--sage-light);
+  margin: 0 auto 28px;
+  border-radius: 2px;
+}
+
+.footer-text {
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.7;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.footer-sig {
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--terracotta);
+  font-weight: 500;
+}
+
+/* ─── BACK TO TOP ─────────────────────────────────────────────────────── */
+.back-to-top {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  width: 44px; height: 44px;
+  background: var(--moss);
+  color: white;
+  border: none; border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(107,142,107,0.35);
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: all 0.3s;
+  z-index: 1000;
+}
+
+.back-to-top.show { opacity: 1; visibility: visible; pointer-events: all; }
+.back-to-top:hover { background: #5a7a5a; transform: translateY(-3px); }
+
+/* ─── RESPONSIVE ──────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .toc-wrapper { position:relative; top:0; float:none; width:100%; margin-left:0; margin-bottom:28px; }
+  .domain-grid, .topo-grid, .eval-grid { grid-template-columns: 1fr; }
+  .part-row { grid-template-columns: 90px 1fr; }
+  .container-row { grid-template-columns: 80px 1fr; }
+  .article { border-radius: 18px; }
+  .closing-block { padding: 28px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-content">
+    <div class="header-eyebrow">Razfira — A Living Reflection</div>
+    <h1>The Many Selves Navigation Guide</h1>
+    <div class="header-sub">Sha & R — for reflection, not performance</div>
+    <div class="header-date">Compiled 27 July 2026</div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+<article class="article">
+
+  <!-- TOC -->
+  <div class="toc-wrapper">
+    <nav class="toc">
+      <div class="toc-header" onclick="toggleTOC()">
+        <h3 class="toc-title">Contents</h3>
+        <div class="toc-toggle" id="tocToggle">▼</div>
+      </div>
+      <ul class="toc-list" id="tocList">
+        <li class="toc-item"><a href="#frame" class="toc-link"><span class="toc-dot"></span>Foundational frame</a></li>
+        <li class="toc-item"><a href="#domains" class="toc-link"><span class="toc-dot"></span>Two sovereign domains</a></li>
+        <li class="toc-item"><a href="#topology" class="toc-link"><span class="toc-dot"></span>Partnership topology</a></li>
+        <li class="toc-item"><a href="#selves" class="toc-link"><span class="toc-dot"></span>The many selves (IFS)</a></li>
+        <li class="toc-item"><a href="#navigation" class="toc-link"><span class="toc-dot"></span>Navigation by container</a></li>
+        <li class="toc-item"><a href="#enriches" class="toc-link"><span class="toc-dot"></span>Enriches / deteriorates</a></li>
+        <li class="toc-item"><a href="#parts-diff" class="toc-link"><span class="toc-dot"></span>The parts differentiation</a></li>
+        <li class="toc-item"><a href="#signals" class="toc-link"><span class="toc-dot"></span>Signals to watch</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- GOLDEN RULE -->
+  <div class="golden-rule">
+    <div class="golden-rule-text">"Name which Sha is entering the room.<br>She gets to choose consciously."</div>
+    <div class="golden-rule-sub">This is not suppression. It is sovereignty.</div>
+  </div>
+
+  <!-- SECTION 1: FOUNDATIONAL FRAME -->
+  <section class="section" id="frame">
+    <div class="section-label">The frame</div>
+    <h2 class="section-title">Foundational frame</h2>
+    <div class="section-divider"></div>
+
+    <p class="lead">When R engages Sha — even on a small, practical decision — <strong>full Sha arrives</strong>. Not just the supportive partner. The ethicist, the expert, the woman whose future household lives in that choice.</p>
+
+    <p>This is not a demand. It is the consequence of genuine engagement. Engagement implies full presence — expertise, ethics, and future all in the room.</p>
+
+    <div class="pullquote">
+      <p class="pullquote-text">The rezeki principle: his business decisions are not just personal. His rizq becomes the household's barakah — or its absence. She names this not to police him, but because shared life means shared accountability before Allah.</p>
+    </div>
+
+    <p>She established this <em>now</em>, while rebuilding, so it doesn't need to be litigated after nikah.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 2: DOMAINS -->
+  <section class="section" id="domains">
+    <div class="section-label">Part 1</div>
+    <h2 class="section-title">The two sovereign domains</h2>
+    <div class="section-divider"></div>
+
+    <div class="domain-grid">
+      <div class="domain-card sha">
+        <div class="domain-card-label">Sha's domain</div>
+        <ul class="domain-list">
+          <li>AI safety, edtech, Islamic epistemology</li>
+          <li>Ethics-first lens, civic infrastructure</li>
+          <li>Command, Relator, Achiever, Learner, Significance</li>
+        </ul>
+      </div>
+      <div class="domain-card r">
+        <div class="domain-card-label">R's domain</div>
+        <ul class="domain-list">
+          <li>Business operations, strategic thinking</li>
+          <li>Practical efficiency, futuristic vision</li>
+          <li>Futuristic, Intellection, Ideation, Input, Learner</li>
+        </ul>
+      </div>
+    </div>
+
+    <p>Two sovereign territories. Neither absorbs the other. What they share lives in the middle — not because the edges dissolve, but because both choose to bring their best selves to a shared table.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 3: TOPOLOGY -->
+  <section class="section" id="topology">
+    <div class="section-label">Part 2</div>
+    <h2 class="section-title">Partnership topology</h2>
+    <div class="section-divider"></div>
+
+    <p>They are <strong>not</strong> a Matt-Zara — co-founders, Sdn Bhd, products sold together. That structure mismatches their selves. The mismatch is not a failure. It is self-knowledge. Named early, it protects both.</p>
+
+    <div class="topo-grid">
+      <div class="topo-card fits">
+        <div class="topo-card-label">Fits</div>
+        <ul class="topo-list">
+          <li>Philanthropy, social club, shared meaning</li>
+          <li>Reflective Industrious (intellectual peer)</li>
+          <li>Household building, nikah vision</li>
+          <li>Values alignment conversations</li>
+        </ul>
+      </div>
+      <div class="topo-card nope">
+        <div class="topo-card-label">Does not fit</div>
+        <ul class="topo-list">
+          <li>Co-founder, joint business operations</li>
+          <li>Revenue-dependent collaboration</li>
+          <li>Operational management of each other's work</li>
+          <li>Correcting each other's business decisions</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 4: THE MANY SELVES -->
+  <section class="section" id="selves">
+    <div class="section-label">Part 3</div>
+    <h2 class="section-title">The many selves (IFS lens)</h2>
+    <div class="section-divider"></div>
+
+    <p>In Internal Family Systems, there are no bad parts — only parts carrying burdens, parts with good intentions that sometimes misfire, and a Self underneath all of them that is calm, curious, compassionate, and capable of leading.</p>
+
+    <div class="wisdom">
+      <p class="wisdom-text">The goal is not to silence any part. It is for Self to be in the driver's seat — with each part trusted, unburdened, and in its right role. The navigation question is always: <em>which part is leading right now, and is Self in the room?</em></p>
+    </div>
+
+    <!-- SHA'S PARTS -->
+    <div class="person-header">
+      <span class="person-dot sha"></span>
+      <span class="person-name">Sha's parts</span>
+      <span class="person-sub">Command · Relator · Achiever · Learner · Significance</span>
+    </div>
+
+    <div class="parts-grid">
+
+      <div class="part-card self-card">
+        <div class="part-type-badge">The Self</div>
+        <p style="font-family:'Cormorant Garamond',serif; font-size:17px; font-style:italic; color:var(--moss); line-height:1.6;">Calm, curious, present, compassionate. The one who can witness her own parts without being hijacked by them. The secure anchor she is growing toward. When Self leads, all other parts can relax.</p>
+      </div>
+
+      <div class="part-card sha-part">
+        <div class="part-type-badge">The Romantic</div>
+        <div class="part-name">The Romantic</div>
+        <div class="part-ifs-type">Exile / true Self expression</div>
+        <div class="part-rows">
+          <div class="part-row gift"><div class="part-row-label">Gift</div><div class="part-row-value">The part that knows how to be held, not just to hold. Soft, magnetic, genuinely present, receives love freely.</div></div>
+          <div class="part-row burden"><div class="part-row-label">Burden</div><div class="part-row-value">Learned that softness was unsafe; that being needed was more reliable than being loved.</div></div>
+          <div class="part-row leads"><div class="part-row-label">When it leads</div><div class="part-row-value">The romantic container opens; R's protective instincts activate naturally.</div></div>
+          <div class="part-row watch"><div class="part-row-label">When exiled</div><div class="part-row-value">Working Sha overfunctions to fill the gap — connection becomes transaction.</div></div>
+        </div>
+      </div>
+
+      <div class="part-card sha-part">
+        <div class="part-type-badge">Protective Manager</div>
+        <div class="part-name">Working Sha — the Eldest Child</div>
+        <div class="part-ifs-type">Protective manager</div>
+        <div class="part-rows">
+          <div class="part-row gift"><div class="part-row-label">Gift</div><div class="part-row-value">Extraordinary in her domain — builds things, holds vision, gets things done. Command, Achiever, structure-holder.</div></div>
+          <div class="part-row burden"><div class="part-row-label">Burden</div><div class="part-row-value">Parentification: learned that love = useful; rest = danger; if she stops holding, everything falls.</div></div>
+          <div class="part-row leads"><div class="part-row-label">Right room</div><div class="part-row-value">CetaLabs, Irori, civic work — she is <em>magnificent</em> here.</div></div>
+          <div class="part-row watch"><div class="part-row-label">Wrong room</div><div class="part-row-value">Romantic container reads her as management; R's masculine lead retreats; her Relator starves.</div></div>
+          <div class="part-row note"><div class="part-row-label">IFS note</div><div class="part-row-value">This part doesn't need to be smaller — it needs to trust that Self can hold the romantic space without it.</div></div>
+        </div>
+      </div>
+
+      <div class="part-card sha-part">
+        <div class="part-type-badge">Self-Adjacent</div>
+        <div class="part-name">The Ethicist</div>
+        <div class="part-ifs-type">Values-keeper, Self-adjacent</div>
+        <div class="part-rows">
+          <div class="part-row gift"><div class="part-row-label">Gift</div><div class="part-row-value">Islam as lived architecture, civic conscience, moral non-negotiables. Gives her relationship a spine that doesn't bend under pressure.</div></div>
+          <div class="part-row leads"><div class="part-row-label">When it leads</div><div class="part-row-value">Values conversations become invitations, not verdicts; she names tension without needing resolution.</div></div>
+          <div class="part-row watch"><div class="part-row-label">When suppressed</div><div class="part-row-value">She swallows the concern; silent absorption accumulates; the body keeps score.</div></div>
+        </div>
+      </div>
+
+      <div class="part-card sha-part">
+        <div class="part-type-badge">Exile</div>
+        <div class="part-name">The Griever</div>
+        <div class="part-ifs-type">Exile</div>
+        <div class="part-rows">
+          <div class="part-row gift"><div class="part-row-label">Gift</div><div class="part-row-value">Grief is generative — it powers Irori, teaches her what love should feel like. Mama's love as a continuing bond and compass.</div></div>
+          <div class="part-row burden"><div class="part-row-label">Burden</div><div class="part-row-value">Fear of entering a family system with no maternal protection — both personal meaning and practical wisdom about current decisions.</div></div>
+          <div class="part-row leads"><div class="part-row-label">When it leads</div><div class="part-row-value">She touches something true and alive; creativity flows from it. Amal jariyah in motion.</div></div>
+          <div class="part-row watch"><div class="part-row-label">When exiled</div><div class="part-row-value">She performs okayness; the creative source goes quiet.</div></div>
+        </div>
+      </div>
+
+      <div class="part-card sha-part">
+        <div class="part-type-badge">Self-Led — Emerging</div>
+        <div class="part-name">The Healer</div>
+        <div class="part-ifs-type">Self-led part, still emerging</div>
+        <div class="part-rows">
+          <div class="part-row gift"><div class="part-row-label">Gift</div><div class="part-row-value">IFS awareness, earned secure arc, nervous system literacy. Can name her own activation; can differentiate triggered response from genuine intuition.</div></div>
+          <div class="part-row burden"><div class="part-row-label">Burden</div><div class="part-row-value">The parentification reflex — to extend healing to others, to manage R's growth as if it were hers to carry.</div></div>
+          <div class="part-row note"><div class="part-row-label">Right role</div><div class="part-row-value">Her own interior practice. Witnessing R without fixing him.</div></div>
+        </div>
+      </div>
+
+      <div class="part-card sha-part">
+        <div class="part-type-badge">Healthy Manager</div>
+        <div class="part-name">The Builder</div>
+        <div class="part-ifs-type">Healthy manager / Self-expression</div>
+        <div class="part-rows">
+          <div class="part-row gift"><div class="part-row-label">Gift</div><div class="part-row-value">Turns meaning into structure. Makes the intangible real. Works at the intersection of beauty and impact — Irori, CetaLabs, legacy architecture, amal jariyah.</div></div>
+          <div class="part-row leads"><div class="part-row-label">When it leads</div><div class="part-row-value">She is most herself — creative sovereignty fully expressed.</div></div>
+          <div class="part-row watch"><div class="part-row-label">Watch</div><div class="part-row-value">When hijacked by Working Sha's urgency: Achiever anxiety replaces joy of progress.</div></div>
+        </div>
+      </div>
+
+      <div class="part-card sha-part">
+        <div class="part-type-badge">Vision-Holder</div>
+        <div class="part-name">The Dreamer</div>
+        <div class="part-ifs-type">Vision-holder, Self-adjacent</div>
+        <div class="part-rows">
+          <div class="part-row gift"><div class="part-row-label">Gift</div><div class="part-row-value">Holds the long horizon without losing sight of the present. Soft, impactful, wealthy life — 80% softness generating 20% impact.</div></div>
+          <div class="part-row leads"><div class="part-row-label">When it leads</div><div class="part-row-value">Vision co-creation with R becomes possible; Significance meets Futuristic.</div></div>
+          <div class="part-row watch"><div class="part-row-label">When suppressed</div><div class="part-row-value">She shrinks the vision to what feels safe to want.</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- R'S PARTS -->
+    <div class="person-header">
+      <span class="person-dot r"></span>
+      <span class="person-name">R's parts</span>
+      <span class="person-sub">Futuristic · Intellection · Ideation · Input · Learner</span>
+    </div>
+
+    <div class="parts-grid">
+
+      <div class="part-card self-card">
+        <div class="part-type-badge">The Self</div>
+        <p style="font-family:'Cormorant Garamond',serif; font-size:17px; font-style:italic; color:var(--moss); line-height:1.6;">Still consolidating. His all-Strategic-Thinking Gallup profile means his Self expression often happens <em>inward</em> before it becomes visible. This is not absence. It is architecture.</p>
+      </div>
+
+      <div class="part-card r-part">
+        <div class="part-type-badge">True Self Expression</div>
+        <div class="part-name">The Romantic</div>
+        <div class="part-ifs-type">True Self expression</div>
+        <div class="part-rows">
+          <div class="part-row gift"><div class="part-row-label">Gift</div><div class="part-row-value">The part that chose her. Tender, protective, quietly present. Shows up in small acts of care.</div></div>
+          <div class="part-row burden"><div class="part-row-label">Burden</div><div class="part-row-value">Learned that vulnerability is risk; that protection is safer than exposure.</div></div>
+          <div class="part-row leads"><div class="part-row-label">When it leads</div><div class="part-row-value">Genuine intimacy opens; she feels chosen, not managed.</div></div>
+          <div class="part-row watch"><div class="part-row-label">When it retreats</div><div class="part-row-value">R the Thinker takes over; Sha reads absence as indifference.</div></div>
+        </div>
+      </div>
+
+      <div class="part-card r-part">
+        <div class="part-type-badge">Manager</div>
+        <div class="part-name">The Operator</div>
+        <div class="part-ifs-type">Manager</div>
+        <div class="part-rows">
+          <div class="part-row gift"><div class="part-row-label">Gift</div><div class="part-row-value">Runs his life and business with minimal friction. Efficiency, practical systems.</div></div>
+          <div class="part-row burden"><div class="part-row-label">Burden</div><div class="part-row-value">Convenience can quietly override conviction when he's not paying attention.</div></div>
+          <div class="part-row note"><div class="part-row-label">Right room</div><div class="part-row-value">His business domain — fully sovereign.</div></div>
+          <div class="part-row watch"><div class="part-row-label">Watch</div><div class="part-row-value">When Operator logic bleeds into shared-values territory without reflection.</div></div>
+        </div>
+      </div>
+
+      <div class="part-card r-part">
+        <div class="part-type-badge">Self-Adjacent</div>
+        <div class="part-name">The Visionary</div>
+        <div class="part-ifs-type">Self-adjacent</div>
+        <div class="part-rows">
+          <div class="part-row gift"><div class="part-row-label">Gift</div><div class="part-row-value">Futuristic — sees what could be with unusual clarity. Paired with Sha's Significance, their most natural convergence point: both need the vision held, both need to feel essential to it.</div></div>
+          <div class="part-row leads"><div class="part-row-label">When it leads</div><div class="part-row-value">He initiates; she receives; the relationship has direction.</div></div>
+        </div>
+      </div>
+
+      <div class="part-card r-part">
+        <div class="part-type-badge">Loyalty Burden</div>
+        <div class="part-name">The Son</div>
+        <div class="part-ifs-type">Part carrying a loyalty burden</div>
+        <div class="part-rows">
+          <div class="part-row burden"><div class="part-row-label">Burden</div><div class="part-row-value">Loyalty not yet fully differentiated from obligation. His mother's non-engagement as an unresolved structural tension.</div></div>
+          <div class="part-row note"><div class="part-row-label">IFS note</div><div class="part-row-value">This part is not the enemy — it is doing what it learned to do. The question is whether R's Self can lead in relation to his family of origin, rather than this part leading by default.</div></div>
+          <div class="part-row watch"><div class="part-row-label">For Sha</div><div class="part-row-value">Witnessing only. She cannot do this work for him.</div></div>
+        </div>
+      </div>
+
+      <div class="part-card r-part">
+        <div class="part-type-badge">Protective Manager</div>
+        <div class="part-name">The Thinker</div>
+        <div class="part-ifs-type">Protective manager</div>
+        <div class="part-rows">
+          <div class="part-row gift"><div class="part-row-label">Gift</div><div class="part-row-value">Intellection — processes internally, alone, at depth. The quality of his thinking when given space is genuinely rare.</div></div>
+          <div class="part-row burden"><div class="part-row-label">Burden</div><div class="part-row-value">Retreats when the emotional field becomes too charged; goes inward when he cannot yet articulate what he feels.</div></div>
+          <div class="part-row leads"><div class="part-row-label">Right time</div><div class="part-row-value">He arrives at clarity and shares it unprompted — this is the action statement.</div></div>
+          <div class="part-row watch"><div class="part-row-label">As avoidance</div><div class="part-row-value">Sha reads silence as withdrawal → Command escalates → Thinker retreats further. The loop.</div></div>
+        </div>
+      </div>
+
+      <div class="part-card r-part">
+        <div class="part-type-badge">Healthy Manager</div>
+        <div class="part-name">The Leader</div>
+        <div class="part-ifs-type">Healthy manager, still stepping in</div>
+        <div class="part-rows">
+          <div class="part-row gift"><div class="part-row-label">Gift</div><div class="part-row-value">Masculine direction, Ideation, structural ownership. When he leads — in social impact, household vision, in repair — the relationship has the architecture it needs.</div></div>
+          <div class="part-row leads"><div class="part-row-label">When it leads</div><div class="part-row-value">Sha's Romantic can fully receive; her Command can rest.</div></div>
+          <div class="part-row watch"><div class="part-row-label">When it defers</div><div class="part-row-value">Sha's Manager steps in to fill the vacuum — which is exactly what kacau the dynamic.</div></div>
+        </div>
+      </div>
+
+      <div class="part-card r-part">
+        <div class="part-type-badge">Early Unburdening</div>
+        <div class="part-name">The Healer</div>
+        <div class="part-ifs-type">Part still early in its unburdening</div>
+        <div class="part-rows">
+          <div class="part-row gift"><div class="part-row-label">Gift</div><div class="part-row-value">The potential of a man who has done the work — which is what makes the relationship possible at depth.</div></div>
+          <div class="part-row burden"><div class="part-row-label">Burden</div><div class="part-row-value">The wound that makes him context-dependent in high-stakes moments, particularly when his father is physically present.</div></div>
+          <div class="part-row note"><div class="part-row-label">For Sha</div><div class="part-row-value">She can be a secure, non-mothering presence — but only if it gets internalized, not maintained as an external regulator.</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- IFS PRINCIPLE -->
+    <div class="ifs-principle">
+      <div class="ifs-principle-main">Parts do not need to be eliminated. They need to be led by Self — trusted, in their right role, no longer carrying old burdens alone.</div>
+      <div class="ifs-question">The question in any moment of friction is not "which of us is wrong?" but:<br><strong>Whose part just took the wheel — and does their Self know?</strong></div>
+    </div>
+
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 5: NAVIGATION BY CONTAINER -->
+  <section class="section" id="navigation">
+    <div class="section-label">Part 4</div>
+    <h2 class="section-title">Navigation by container</h2>
+    <div class="section-divider"></div>
+
+    <p><em>The cascade always starts with one self entering the wrong container.</em> Each space below has its own belonging — and its own failure mode.</p>
+
+    <div class="container-cards">
+
+      <div class="container-card">
+        <div class="container-card-title">Romantic container <span class="container-tag">primary</span></div>
+        <div class="container-rows">
+          <div class="container-row who"><div class="container-row-label">Who belongs</div><div>Romantic Sha + Romantic R</div></div>
+          <div class="container-row thrives"><div class="container-row-label">Thrives when</div><div>She arrives soft; he leads</div></div>
+          <div class="container-row friction"><div class="container-row-label">Friction</div><div>Working Sha enters → Command reads as management → R retreats into Thinker → Sha is left alone → eldest-child wound activated</div></div>
+        </div>
+      </div>
+
+      <div class="container-card">
+        <div class="container-card-title">Values partnership</div>
+        <div class="container-rows">
+          <div class="container-row who"><div class="container-row-label">Who belongs</div><div>Sha the Ethicist + R the Operator (when he engages)</div></div>
+          <div class="container-row thrives"><div class="container-row-label">Thrives when</div><div>She names softly, plants the seed, releases him to reflect — unprompted return is the evidence of internalization</div></div>
+          <div class="container-row friction"><div class="container-row-label">Friction</div><div>Policing his decisions, over-explaining, needing resolution in real time</div></div>
+        </div>
+        <div class="container-note">The seed-and-water principle: she plants. He waters in his own season. A process statement ("you're right") is not the same as an action statement (he returns to it himself).</div>
+      </div>
+
+      <div class="container-card">
+        <div class="container-card-title">Vision co-creation</div>
+        <div class="container-rows">
+          <div class="container-row who"><div class="container-row-label">Who belongs</div><div>Sha the Dreamer + R the Visionary</div></div>
+          <div class="container-row thrives"><div class="container-row-label">Thrives when</div><div>He initiates the vision conversation; Futuristic meets Significance — both need the vision held, both need to feel essential to it</div></div>
+          <div class="container-row friction"><div class="container-row-label">Friction</div><div>R the Thinker disappears inward → Sha over-functions to fill the silence → deepens his retreat</div></div>
+        </div>
+      </div>
+
+      <div class="container-card">
+        <div class="container-card-title">Intellectual companionship</div>
+        <div class="container-rows">
+          <div class="container-row who"><div class="container-row-label">Who belongs</div><div>Sha the Builder + Sha the Learner + R the Thinker</div></div>
+          <div class="container-row thrives"><div class="container-row-label">Thrives when</div><div>Curiosity leads, no verdict; Reflective Industrious as structural container</div></div>
+          <div class="container-row friction"><div class="container-row-label">Friction</div><div>Working Sha correcting → debate replaces companionship</div></div>
+        </div>
+      </div>
+
+      <div class="container-card">
+        <div class="container-card-title">Social impact <span class="container-tag">quiet gift</span></div>
+        <div class="container-rows">
+          <div class="container-row who"><div class="container-row-label">Who belongs</div><div>Sha the Ethicist + Sha the Builder + R the Leader</div></div>
+          <div class="container-row thrives"><div class="container-row-label">Thrives when</div><div>He leads structure, she provides the ethical spine and vision — no Sdn Bhd required</div></div>
+          <div class="container-row friction"><div class="container-row-label">Friction</div><div>Sha managing operations → replicates the biz-partner mismatch in a different wrapper</div></div>
+        </div>
+        <div class="container-note">This is where their best selves meet without revenue dependency or ego territory. R leads structure; Sha brings the vision and the spine.</div>
+      </div>
+
+      <div class="container-card">
+        <div class="container-card-title">Healing selves</div>
+        <div class="container-rows">
+          <div class="container-row who"><div class="container-row-label">Who belongs</div><div>Sha the Healer + Sha the Griever + R the Healer + R the Son</div></div>
+          <div class="container-row thrives"><div class="container-row-label">Thrives when</div><div>Witnessed without being fixed; each holds their own interior</div></div>
+          <div class="container-row friction"><div class="container-row-label">Friction</div><div>Sha managing R's healing → parentification loop recreated, not resolved</div></div>
+        </div>
+        <div class="container-note">Both carry parentification wounds. Sha's Relator + Achiever naturally want to help him heal. That instinct, followed, becomes the wound replicated.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 6: ENRICHES / DETERIORATES -->
+  <section class="section" id="enriches">
+    <div class="section-label">Part 5</div>
+    <h2 class="section-title">What enriches vs. what deteriorates</h2>
+    <div class="section-divider"></div>
+
+    <div class="eval-grid">
+      <div class="eval-card enrich">
+        <div class="eval-card-title">Enriches</div>
+        <ul class="eval-list">
+          <li>Values curiosity — asking <em>why</em>, not just <em>what</em></li>
+          <li>Honest naming with a soft voice</li>
+          <li>Rezeki as shared future barakah</li>
+          <li>Him hearing her as specialist</li>
+          <li>Planted seeds, trusting his timing</li>
+          <li>Tension as data — values alive</li>
+        </ul>
+      </div>
+      <div class="eval-card degrade">
+        <div class="eval-card-title">Deteriorates</div>
+        <ul class="eval-list">
+          <li>Swallowing concern to protect him</li>
+          <li>Over-explaining until he resolves it</li>
+          <li>Policing his decisions</li>
+          <li>Silent absorption accumulating</li>
+          <li>Accepting process statements as action</li>
+          <li>Convenience over conviction, unnamed</li>
+        </ul>
+      </div>
+      <div class="eval-card separate">
+        <div class="eval-card-title">Stays separate — and must</div>
+        <ul class="eval-list">
+          <li>His business autonomy — fully sovereign</li>
+          <li>Her inner ethical compass</li>
+          <li>Her contradictions — held without shame</li>
+          <li>Timing of his reflection — his to grow</li>
+          <li>Domain expertise — brought, not merged</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 7: PARTS DIFFERENTIATION -->
+  <section class="section" id="parts-diff">
+    <div class="section-label">Part 6</div>
+    <h2 class="section-title">The parts differentiation</h2>
+    <div class="section-divider"></div>
+
+    <p>Working Sha carries the <strong>eldest-child part</strong> — the one who over-functions, manages, holds structure, leads. This part is extraordinary in her work. In the romantic container, activated around R, it <em>kacau</em> his masculine-leader needs.</p>
+
+    <div class="practice">
+      <div class="practice-label">The navigation</div>
+      <p class="practice-text">This is not suppression. It is <strong>compartmentalisation with dignity</strong>: Working Sha is not hidden — she knows which room she belongs in. Romantic Sha is not performed patience — the softness must be genuinely nourished. R is given space to lead without encountering her Achiever's counter-proposal before he finishes thinking. This protects both. She gets to rest. He gets to grow.</p>
+    </div>
+
+    <div class="wisdom">
+      <p class="wisdom-text">Her femininity — magnetism, depth, mystery, genuine curiosity — is not incidental. It is structural. It is what draws people of substance, including R, toward her naturally. It does not need to compete with Working Sha. They are different rooms in the same house.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 8: SIGNALS -->
+  <section class="section" id="signals">
+    <div class="section-label">Part 7</div>
+    <h2 class="section-title">Key signals to watch</h2>
+    <div class="section-divider"></div>
+
+    <table class="signals-table">
+      <thead>
+        <tr>
+          <th>Signal</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>He returns to a values question unprompted</td>
+          <td>Seed internalized — action statement</td>
+        </tr>
+        <tr>
+          <td>He says "you're right" and doesn't revisit</td>
+          <td>Process statement only</td>
+        </tr>
+        <tr>
+          <td>She feels flat after naming something true</td>
+          <td>Nervous system having spent its resources — not indifference</td>
+        </tr>
+        <tr>
+          <td>She overrides somatic signals to keep peace</td>
+          <td>Relational and identity burnout accumulating</td>
+        </tr>
+        <tr>
+          <td>He retreats into Thinker when she escalates</td>
+          <td>Command + Achiever triggering his Intellection withdrawal</td>
+        </tr>
+        <tr>
+          <td>She ends with <em>fokusss sanaa</em> and warmth</td>
+          <td>Secure attachment in motion — named truth, released, returned to connection</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CLOSING -->
+  <div class="closing-block">
+    <div class="closing-main">"Name which Sha is entering the room.<br>She gets to choose consciously."</div>
+    <div class="closing-secondary">This is not suppression. This is sovereignty.</div>
+    <div class="closing-meta">This document is a living reflection, not a verdict.<br>Return to it when navigating, not when defending.</div>
+  </div>
+
+</article>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-divider"></div>
+  <div class="footer-text"><em>إِنَّ أَحَبَّ الْأَعْمَالِ إِلَى اللَّهِ أَدْوَمُهَا وَإِنْ قَلَّ</em><br>Allah loves small but consistent deeds</div>
+  <div class="footer-sig">With love, Sha</div>
+</div>
+
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleTOC() {
+  document.getElementById('tocList').classList.toggle('collapsed');
+  document.getElementById('tocToggle').classList.toggle('collapsed');
+}
+
+window.addEventListener('scroll', function() {
+  const btn = document.getElementById('backToTop');
+  btn.classList.toggle('show', window.pageYOffset > 400);
+
+  const sections = document.querySelectorAll('.section');
+  let current = '';
+  sections.forEach(s => {
+    if (window.pageYOffset >= s.offsetTop - 180) current = s.id;
+  });
+  document.querySelectorAll('.toc-link').forEach(l => {
+    l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+  });
+});
+
+document.querySelectorAll('.toc-link').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const first = document.querySelector('.toc-link');
+  if (first) first.classList.add('active');
+});
+</script>
+</body>
+</html>
